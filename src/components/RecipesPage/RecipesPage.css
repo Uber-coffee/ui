@@ -1,0 +1,17 @@
+.Header {
+    min-height: 100px;
+}
+
+.Content {
+    min-height: 810px;
+}
+
+.Footer {
+    min-height: 25px;
+}
+
+@media screen and (max-width: 420px) {
+    .Content {
+        min-height: 400px;
+    }
+}
