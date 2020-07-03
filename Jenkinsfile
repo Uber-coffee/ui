@@ -12,7 +12,7 @@ node {
 	}
 	stage('run command inside docker agent') {
 		docker.image('node:10').inside {
-			sh 'cat /etc/*releases*'
+			sh 'cat /etc/*release*'
 		}
 	}
 }
