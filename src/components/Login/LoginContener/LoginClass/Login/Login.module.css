@@ -25,7 +25,7 @@
 
 .logo{
     position: absolute;
-    background-image: url('../../images/Login/login_logo.png');
+    background-image: url('../../../../../images/Login/login_logo.png');
     display: block;
     margin-left: 120px;
     margin-right: auto;
