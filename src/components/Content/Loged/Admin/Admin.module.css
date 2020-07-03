@@ -1,0 +1,9 @@
+.imgs{
+    width: 500px;
+    height: 350px;
+    background-image: url('../../../../images/kekw.jpg');
+    display: block;
+    background-position: 50% 50%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
