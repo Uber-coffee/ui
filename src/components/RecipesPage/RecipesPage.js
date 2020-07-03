@@ -5,13 +5,15 @@ import RecipesContent from "./RecipesContent/RecipesContent";
 import Footer from "./Footer/Footer";
 import {Route} from 'react-router-dom';
 import AddNewRecipe from "./AddNewRecipe/AddNewRecipe";
-import AddNewComponent from "./AddNewComponent/AddNewComponent";
+import AddNewComponent from "./AddComponents/AddComponents";
+import ConfirmWindow from './ConfirmWindow/ConfirmWindow';
 
 function RecipesPage() {
     return (
         <div className="RecipePageWrapper">
+            <Route path="/confirm-recipe" render={() => <ConfirmWindow />} />
             <Route path="/add-new-recipe" render={() => <AddNewRecipe />} />
-            <Route path="/add-new-component" render={() => <AddNewComponent />} />
+            <Route path="/add-components" render={() => <AddNewComponent />} />
             <div className="Header">
                 <Header/>
             </div>

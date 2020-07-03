@@ -11,11 +11,11 @@ const AddNewRecipe = props => {
                 </NavLink>
                 <div className={classes.title}>INFORMATION ABOUT NEW RECIPE</div>
                 <div className={classes.input_box}>
-                    <input placeholder={"Beverage Name"}/>
-                    <input placeholder={"Number of Components"}/>
+                    <input placeholder={"Beverage Name"} className={classes.input}/>
+                    <input placeholder={"Number of Components"} className={classes.input}/>
                 </div>
                 <div className={classes.buttons_area}>
-                    <NavLink to="/add-new-component">
+                    <NavLink to="/add-components">
                         <button className={classes.continue_button}>CONTINUE</button>
                     </NavLink>
                 </div>

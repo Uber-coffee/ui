@@ -43,7 +43,9 @@
     align-items: center;
 }
 
-input {
+.input {
+    background-color: #FDFDFD;
+    text-align: left;
     font-family: Roboto Slab;
     font-style: normal;
     font-weight: normal;
