@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 node {
     stage('git') {
-        git([url: 'git@github.com/Uber-coffee/Front-end.git', branch: "${env.BRANCH_NAME}", credentialsId: "front_github_access"])
+        git([url: 'git@github.com:Uber-coffee/Front-end.git', branch: "${env.BRANCH_NAME}", credentialsId: "front_github_access"])
     }
     stage('check dir'){
         sh 'ls -la'
