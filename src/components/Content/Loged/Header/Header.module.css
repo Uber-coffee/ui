@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+.header {
+    background: rgba(116, 75, 28, 0.39);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    height: 5em;
+}
+
+.admin_btn {
+    margin-left: auto;
+    position: relative;
+    right: 10px;
+    top: 10px;
+    text-align: center;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: #FFF1BC;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    color: #000000;
+}
+
+.logout_btn{
+    text-align: center;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    line-height: 30px;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    background:  #FFF1BC;
+    border-radius: 100px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #000000;
+}
+.dropdown_menu{
+        
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    background:  #FFF1BC;
+    border-radius: 100px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+        font-family: Roboto Slab;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 47px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #000000;
+}
+
+@media screen and (min-width:1400px){
+    .title{
+        margin-left: 44%;
+    }
+    .admin_btn{
+        position: absolute;
+        margin-top: 8px;
+        margin-right: 20px;
+        width: 200px;
+        height: 45px;
+    }
+    .logout_btn{
+        position: absolute;
+        margin-right: 20px;
+        width: 200px;
+        height: 45px;
+    }
+}
+
+@media screen and (max-width:1400px){
+    .title{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .admin_btn{
+        position: relative;
+        margin-top: 13px;
+        width: 150px;
+        height: 35px;
+    }
+    .logout_btn{
+        position: absolute;
+        width: 150px;
+        height: 35px;
+    }
+}
+
+

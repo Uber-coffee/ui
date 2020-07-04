@@ -1,8 +1,8 @@
 import React from 'react';
-import Unloged from './Unloged/Unloged';
+import Loged from './Loged/Loged';
 
 const Content = props => {
-  return <Unloged />;
+  return <Loged />;
 };
 
 export default Content;
