@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Content from './MainPage/MainPage';
 import {Route} from 'react-router-dom';
 import ConfirmLogOut from '../Header/ConfirmLogOut/ConfirmLogOut';
-import Footer from '../Footer/Footer'
+
 
 function AdminPage() {
     return (
@@ -16,10 +16,6 @@ function AdminPage() {
             
             <div className={classes.Content}>
                 <Content />
-            </div>
-            
-            <div className="Footer">
-                <Footer />
             </div>
         </div>
     );
