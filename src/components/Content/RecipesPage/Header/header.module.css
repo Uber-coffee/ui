@@ -1,0 +1,11 @@
+.header {
+    background: rgb(162, 146, 127);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(130px * 850 / 1024);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
