@@ -1,0 +1,14 @@
+ 
+.burger_button{
+    background-image: url("../../../../../images/burgerMenu/lines.jpg");
+    height: 48px;
+    width: 48px;
+    display: flex;
+    margin-left: 25px;
+    cursor: pointer;
+    background-size: 100%100%;
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+}
