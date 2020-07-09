@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+
 import Footer from './components/Footer/Footer';
+
 import {Route} from 'react-router-dom';
+
 import LoginContainer from './components/Login/LoginContener/LoginContainer';
 import ContentContainer from './components/Content/ContentContainer';
+import HeaderContainer from "./components/Header/HeaderContainer";
+
 function App (props) {
   return (
     <div className="AppWrapper">
       <div className="Header">
-        <Header />
+          <HeaderContainer store={props.store}/>
       </div>
       <div className="Conten">
         <ContentContainer store={props.store} />

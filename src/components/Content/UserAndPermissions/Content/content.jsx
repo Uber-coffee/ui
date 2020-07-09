@@ -4,7 +4,7 @@ import classes from "./content.module.css";
 
 import SearchPanel from "./SearchPanel/search-panel";
 import UserTable from "./UserTable/user-table";
-import Modal from "./Modal/modal"
+import Modal from "../../../Modal/modal"
 
 import AddNewUser from "./AddNewUser/add-new-user";
 

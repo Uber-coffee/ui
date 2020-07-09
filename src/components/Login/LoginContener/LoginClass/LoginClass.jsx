@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from './Login/Login';
 import * as axios from 'axios';
-import {head} from 'request';
+// import {head} from 'request';
 
 class LoginClass extends React.Component {
   componentDidMount () {

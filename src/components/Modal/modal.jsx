@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 
-import classes from "./modal.css";
+import "./modal.css";
 
 const Modal = (props) => {
     const [root] = useState(document.createElement('div'))
@@ -16,7 +16,7 @@ const Modal = (props) => {
     })
 
     return ReactDOM.createPortal(
-            <div className={classes.modal}>
+            <div className={"modal"}>
                 {props.children}
             </div>,
             root

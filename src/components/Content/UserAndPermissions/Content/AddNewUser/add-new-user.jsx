@@ -3,7 +3,7 @@ import React, {useRef, useState} from "react";
 import classes from "./add-new-user.module.css";
 
 import Confirm from "../Confirm/confirm";
-import Modal from "../Modal/modal";
+import Modal from "../../../../Modal/modal";
 
 const AddNewUser = ({closeFunc, addNewEmployer}) => {
     const [employer] = useState({
