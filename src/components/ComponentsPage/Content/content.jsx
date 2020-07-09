@@ -7,9 +7,11 @@ import SearchPanel from "./SearchPanel/search-panel";
 import ComponentTable from "./ComponentTable/component-table";
 import Modal from "./Modal/modal";
 import AddNewComponent from "./AddNewComponent/add-new-component";
+import CategoriesModal from "./CategoriesModal/categories-modal";
 
 const Content = () => {
-    const [isModalOpen, setModalOpen] = useState(false);
+    const [isAddModalOpen, setAddModalOpen] = useState(false);
+    const [isCategoryModalOpen, setCategoryModalOpen] = useState(false);
     const [dumbComponents] = useState(
         [
             {
@@ -48,9 +50,12 @@ const Content = () => {
             }
         ]
     );
-    const toggleModal = () => {
-        setModalOpen(!isModalOpen)
+    const toggleAddModal = () => {
+        setAddModalOpen(!isAddModalOpen)
     };
+    const toggleCategoryModal = () => {
+        setCategoryModalOpen(!isCategoryModalOpen);
+    }
     const createClassesList = () => {
         let list = [];
         dumbComponentClasses.forEach(element => {
@@ -78,15 +83,24 @@ const Content = () => {
         <div className={classes.content}>
             <div className={classes.subtitle}>COMPONENTS</div>
             <div className={classes.buttons_area}>
-                <button className={classes.add_button} onClick={toggleModal}>+ ADD</button>
-                <button className={classes.category_button}>CATEGORIES</button>
+                <button className={classes.add_button} onClick={toggleAddModal}>+ ADD</button>
+                <button className={classes.category_button} onClick={toggleCategoryModal}>
+                    CATEGORIES
+                </button>
             </div>
             <SearchPanel/>
             {
-                isModalOpen &&
+                isAddModalOpen &&
                     <Modal>
-                        <AddNewComponent closeFunc={toggleModal} addNewComponent={addNewComponent} 
+                        <AddNewComponent closeFunc={toggleAddModal} addNewComponent={addNewComponent} 
                                          classesList={createClassesList()} />
+                    </Modal>
+            }
+            {
+                isCategoryModalOpen &&
+                    <Modal>
+                        <CategoriesModal closeFunc={toggleCategoryModal}
+                            addNewComponentClass={addNewComponentClass} componentClassesData={dumbComponentClasses} />
                     </Modal>
             }
             <ComponentTable components={dumbComponents} />

@@ -17,5 +17,5 @@
     box-sizing: border-box;
     text-align: center;
     word-wrap: break-word;
-    width: calc(100% * 418 / 1440);
+    width: calc(100% * 315 / 1000);
 }

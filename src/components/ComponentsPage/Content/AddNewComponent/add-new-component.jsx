@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 import classes from "./add-new-component.module.css";
 
-import Confirm from "../ConfirmComponent/confirm-component";
+import ConfirmComponent from "../ConfirmComponent/confirm-component";
 import Modal from "../Modal/modal";
 
 const AddNewComponent = ({closeFunc, addNewComponent, classesList}) => {
@@ -62,11 +62,11 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList}) => {
     return (
         <div className={classes.wrapper}>
             <button className={classes.close_button} onClick={closeFunc}/>
-            <div className={classes.title}>INFORMATION ABOUT NEW EMPLOYEE</div>
+            <div className={classes.title}>INFORMATION ABOUT NEW COMPONENT</div>
             <div className={classes.input_box}>
                 <div className={classes.field_wrapper}>
                     <input
-                        placeholder={"Component name"}
+                        placeholder={"Component Name"}
                         name={"name"}
                         onChange={handleChange}
                     />
@@ -83,6 +83,7 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList}) => {
                         <div
                             className={displayDropdown ? classes.buttonOpened : classes.buttonClosed}
                             onClick={()=>toggleDropdown(this)}
+                            style={{color: (component.CLASS_NAME === "") ? "#959595" : "#000000"}}
                         >
                             {component.CLASS_NAME === "" ? "Сategory" : component.CLASS_NAME}
                         </div>
@@ -101,7 +102,7 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList}) => {
             {
                 displayConfirm &&
                 <Modal>
-                    <Confirm onCancel={toggleConfirm} onConfirm={onConfirm}/>
+                    <ConfirmComponent onCancel={toggleConfirm} onConfirm={onConfirm}/>
                 </Modal>
             }
         </div>
