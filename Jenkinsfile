@@ -20,7 +20,6 @@ node {
             stage('Build') {
                 sh 'npm install'
                 sh 'npm run build'
-                sh 'ls -la' //todo remove
             }
         }
 
@@ -29,9 +28,7 @@ node {
         }
 
         stage('Push to registry and deploy') {
-            if (env.BRANCH_NAME == 'develop'
-                || env.BRANCH_NAME == 'deployment' // for testing purposes. TODO: remove
-            ) {
+            if (env.BRANCH_NAME == 'develop') {
                 ansiblePlaybook playbook: 'deploy_dev_playbook.yaml'
                 telegram_msg("Develop has been deployed to dev")
             }
