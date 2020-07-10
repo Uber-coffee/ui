@@ -1,0 +1,22 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars:
+    service_name: 'frontend'
+
+  tasks:
+    - name: push image to registry
+      docker_image:
+        name: "{{ service_name }}"
+        repository: "localhost:5000/{{ service_name }}"
+        tag: "{{ lookup('env', 'BUILD_ID') }}"
+        push: yes
+        source: local
+
+    - name: deploy to docker swarm
+      docker_swarm_service:
+        name: "{{ service_name }}"
+        image: "localhost:5000/{{ service_name }}:{{ lookup('env', 'BUILD_ID') }}"
+        networks:
+          - name: "net_dev"
