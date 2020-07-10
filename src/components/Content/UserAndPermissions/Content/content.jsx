@@ -51,7 +51,6 @@ const Content = () => {
             POSITION: employer.POSITION
         }
         dumbUsers.push(emp);
-        // setDumbUsers(dumbUsers);
     }
 
     return (

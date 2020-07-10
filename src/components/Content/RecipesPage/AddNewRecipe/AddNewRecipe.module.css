@@ -27,7 +27,7 @@
     text-align: center;
     vertical-align: middle;
     display: table-cell;
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -46,7 +46,7 @@
 .input {
     background-color: #FDFDFD;
     text-align: left;
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -72,7 +72,7 @@
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 6px;
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -80,7 +80,7 @@
 }
 
 .close_button {
-    background-image: url("../../../images/close/close_button.png");
+    background-image: url("../../../../images/closeButton/close_button.png");
     width: 43px;
     height: 26px;
     border: none;
@@ -88,4 +88,6 @@
     position: absolute;
     top: 27px;
     right: 41px;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: 100%100%;
 }

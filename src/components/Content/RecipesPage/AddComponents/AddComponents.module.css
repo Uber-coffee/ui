@@ -32,7 +32,7 @@
     outline: none;
     border: 1px solid #000000;
     box-sizing: border-box;
-    font-family: Roboto Mono;
+    font-family: Roboto Mono, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
@@ -72,11 +72,10 @@
 }
 
 .next_button {
-    border: none;
     background: rgba(172, 161, 148, 0.7);
     border: 1px solid #000000;
     box-sizing: border-box;
-    font-family: Roboto Mono;
+    font-family: Roboto Mono, serif;
     font-style: normal;
     font-weight: 300;
     font-size: 24px;

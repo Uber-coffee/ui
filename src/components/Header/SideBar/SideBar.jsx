@@ -13,7 +13,7 @@ const SideBar = (props) => {
         {"name":"Control Panel", "url": "/"},
         {"name":"Trade Points", "url": "/"},
         {"name":"Menu", "url": "/"},
-        {"name":"Recipies", "url": "/"},
+        {"name":"Recipes", "url": "/recipes"},
         {"name":"Users and Permissions", "url": "/users_and_permissions"},
         {"name":"Customers", "url": "/"},
         {"name":"Order History", "url": "/"},

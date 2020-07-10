@@ -1,6 +1,5 @@
 import React from "react";
 import classes from './ConfirmWindow.module.css';
-import {NavLink} from "react-router-dom";
 
 const ConfirmWindow = props => {
     return (
@@ -8,12 +7,8 @@ const ConfirmWindow = props => {
             <div className={classes.wrapper}>
                 <div className={classes.confirm_text}>CONFIRM THE ADDITION OF A NEW RECIPE</div>
                 <div className={classes.buttons_area}>
-                    <NavLink to="/">
-                        <button className={classes.cancel}>CANSEL</button>
-                    </NavLink>
-                    <NavLink to="/">
-                        <button className={classes.confirm}>CONFIRM</button>
-                    </NavLink>
+                    <button className={classes.cancel} onClick={props.closeFunc}>CANCEL</button>
+                    <button className={classes.confirm} onClick={props.closeFunc}>CONFIRM</button>
                 </div>
             </div>
         </div>
