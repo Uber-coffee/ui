@@ -19,7 +19,8 @@ node {
         docker.image('node:12').inside() {
             stage('Build') {
                 sh 'npm install'
-                sh 'npm build'
+                sh 'npm run build'
+                sh 'ls -la' //todo remove
             }
         }
 
