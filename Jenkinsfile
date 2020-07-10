@@ -23,24 +23,26 @@ node {
             }
         }
 
-        stage('Build docker image') {
-            docker.build("frontend:${env.BUILD_ID}")
-        }
-
-        stage('Push to registry and deploy') {
-            if (env.BRANCH_NAME == 'develop') {
-                ansiblePlaybook playbook: 'deploy_dev_playbook.yaml'
-                telegram_msg("Develop has been deployed to dev")
+        if (env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'master') {
+            stage('Build docker image') {
+                docker.build("frontend:${env.BUILD_ID}")
             }
 
-            if (env.BRANCH_NAME == 'master') {
-                ansiblePlaybook playbook: 'deploy_prod_playbook.yaml'
-                telegram_msg("Master has been deployed to production, pray for success :)")
+            stage('Push to registry and deploy') {
+                if (env.BRANCH_NAME == 'develop') {
+                    ansiblePlaybook playbook: 'deploy_dev_playbook.yaml'
+                    telegram_msg("Develop has been deployed to dev")
+                }
+
+                if (env.BRANCH_NAME == 'master') {
+                    ansiblePlaybook playbook: 'deploy_prod_playbook.yaml'
+                    telegram_msg("Master has been deployed to production, pray for success :)")
+                }
             }
         }
 
         stage('Job success notification') {
-            telegram_msg("Build ${env.BRANCH_NAME} finished, image: auth: ${env.BUILD_ID}")
+            telegram_msg("Build ${env.BRANCH_NAME} finished, image: frontend: ${env.BUILD_ID}")
         }
     } catch (Exception ex) {
         telegram_msg("Build ${env.BRANCH_NAME} failed")
@@ -50,7 +52,7 @@ node {
 
 def telegram_msg(String msg) {
     telegramSend(
-            message: '[Frontend] ' + msg,
+            message: 'Frontend: ' + msg,
             chatId: -1001336690990 // https://t.me/epambuildlogs
     )
 }
