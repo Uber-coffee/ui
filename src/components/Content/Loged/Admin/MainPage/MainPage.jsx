@@ -24,7 +24,7 @@ const Admin = props => {
                     <NavLink className={classes.navlink} to="/users_and_permissions" >Menu</NavLink>
                 </button>
                 <button className={classes.components_btn }>
-                    <NavLink className={classes.navlink} to="/" >Components</NavLink>
+                    <NavLink className={classes.navlink} to="/components" >Components</NavLink>
                 </button>
                 <button className={classes.recipes_btn }>
                     <NavLink className={classes.navlink} to="/recipes" >Recipes</NavLink>

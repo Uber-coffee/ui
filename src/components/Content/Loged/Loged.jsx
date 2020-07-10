@@ -3,6 +3,7 @@ import {Redirect, Route} from "react-router-dom";
 import UserAndPermissions from "../UserAndPermissions/user-and-permissions";
 import RecipesPage from "../RecipesPage/RecipesPage";
 import AdminPage from "./Admin/AdminPage";
+import ComponentsPage from "../ComponentsPage/components-page";
 
 const Loged = props => {
   return (
@@ -13,6 +14,7 @@ const Loged = props => {
         <Route path={"/users_and_permissions"} render={UserAndPermissions} />
         <Route path={"/recipes"} render={RecipesPage} />
         <Route path={"/control_panel"} render={AdminPage} />
+        <Route path={"/components"} render={ComponentsPage} />
       </div>
   );
 };

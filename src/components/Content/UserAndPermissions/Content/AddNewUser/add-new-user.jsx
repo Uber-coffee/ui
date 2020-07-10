@@ -104,6 +104,7 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
             <div className={classes.input_box}>
                 <div className={classes.field_wrapper}>
                     <input
+                        className={classes.user_perm_param}
                         placeholder={"Full name"}
                         name={"fullName"}
                         onChange={handleChange}
@@ -111,6 +112,7 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
                 </div>
                 <div className={classes.field_wrapper}>
                     <input
+                        className={classes.user_perm_param}
                         placeholder={"E-Mail Address"}
                         name={"email"}
                         onChange={handleChange}
@@ -118,6 +120,7 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
                 </div>
                 <div className={classes.field_wrapper}>
                     <input
+                        className={classes.user_perm_param}
                         placeholder={"Phone Number"}
                         name={"phone"}
                         onChange={handleChange}
@@ -125,6 +128,7 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
                 </div>
                 <div className={classes.field_wrapper}>
                     <input
+                        className={classes.user_perm_param}
                         placeholder={"Password"}
                         name={"password"}
                         onChange={handleChange}

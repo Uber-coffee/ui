@@ -46,7 +46,7 @@
     width: 250px;
 }
 
-.inputComponentTable {
+.input_add_components {
     border: none;
     background-color: #F1F1F1;
     margin-bottom: 0;
@@ -64,6 +64,7 @@
 
 select {
     border: none;
+    background-color: #F1F1F1;
     font-family: Roboto Mono, serif;
     font-style: normal;
     font-weight: 300;
@@ -74,5 +75,5 @@ select {
     width: 100%;
     text-align: center;
     -webkit-appearance: none;
-    background: #F1F1F1 url("../../../../../images/select/select_arrow.png") no-repeat right;
+    background: url("../../../../../../images/select/select_arrow.png") no-repeat right;
 }

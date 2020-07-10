@@ -17,7 +17,7 @@ const SideBar = (props) => {
         {"name":"Users and Permissions", "url": "/users_and_permissions"},
         {"name":"Customers", "url": "/"},
         {"name":"Order History", "url": "/"},
-        {"name":"Components", "url": "/"},
+        {"name":"Components", "url": "/components"},
     ];
 
     useEffect(() =>{

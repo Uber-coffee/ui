@@ -1,7 +1,7 @@
 import React from "react";
-import classes from './ComponentsTable.module.css';
+import classes from './add-components-table.module.css';
 
-const ComponentsTable = props => {
+const AddComponentsTable = props => {
     return (
         <table className={classes.components_table}>
             <thead>
@@ -21,7 +21,7 @@ const ComponentsTable = props => {
                         <select></select>
                     </td>
                     <td className={classes.table_element + ' ' + classes.second_row}>
-                        <input className={classes.inputComponentTable}/>
+                        <input className={classes.input_add_components}/>
                     </td>
                     <td className={classes.table_element + ' ' + classes.third_row}>
                         <select></select>
@@ -32,7 +32,7 @@ const ComponentsTable = props => {
                         <select></select>
                     </td>
                     <td className={classes.table_element + ' ' + classes.second_row}>
-                        <input className={classes.inputComponentTable}/>
+                        <input className={classes.input_add_components}/>
                     </td>
                     <td className={classes.table_element + ' ' + classes.third_row}>
                         <select></select>
@@ -43,7 +43,7 @@ const ComponentsTable = props => {
                         <select></select>
                     </td>
                     <td className={classes.table_element + ' ' + classes.second_row}>
-                        <input className={classes.inputComponentTable}/>
+                        <input className={classes.input_add_components}/>
                     </td>
                     <td className={classes.table_element + ' ' + classes.third_row}>
                         <select></select>
@@ -54,4 +54,4 @@ const ComponentsTable = props => {
     );
 };
 
-export default ComponentsTable;
+export default AddComponentsTable;
