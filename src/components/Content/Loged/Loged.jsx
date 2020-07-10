@@ -10,6 +10,7 @@ const Loged = props => {
         <Route exact path={"/"} render={Admin} />
         <Route path={"/users_and_permissions"} render={UserAndPermissions} />
         <Route path={"/recipes"} render={RecipesPage} />
+        {/*<Route path={"/recipes"} render={AdminPage} />*/}
       </div>
   );
 };
