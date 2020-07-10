@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+.table_wrapper{
+    width: calc(100% * 1288 / 1440);
+    display: flex;
+    justify-content: center;
+    margin: 10px auto 35px;
+}
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table_header {
+    height: 50px;
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: #C4C4C4;
+    border-top: 1px solid #000000;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+.table_header_name {
+    width: calc(100% * 225 / 1440);
+}
+
+.table_header_email {
+    width: calc(100% * 338 / 1440);
+}
+
+.table_header_phone {
+    width: calc(100% * 224 / 1440);
+}
+
+.table_header_time_registration {
+    width: calc(100% * 253 / 1440);
+}
+
+.table_header_position{
+    width: calc(100% * 250 / 1440);
+}

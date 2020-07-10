@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+.content {
+    position: relative;
+    background: #FFFFFF;
+    min-height: auto;
+}
+
+.button_area {
+    position: relative;
+}
+.control_panel{
+    position: absolute;
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 47px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #000000;
+
+}
+
+.admin_face{
+    background-image: url('../../../../../images/Admin/iphone360_34549.jpg');
+    z-index: 1;
+    position: relative;
+    width: 15em;
+    height: 20em;
+    left: 25%;
+    top: auto;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5em;
+}
+
+.admin_name{
+    position: relative;
+    margin-top: 10%;
+    height: 30px;
+    left: 10%;
+
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 28px;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #000000;
+
+}
+
+.admin_position{
+
+    left: 10%;
+    position: relative;
+    height: 30px;
+
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+.admin_responsibility{
+
+    left: 10%;
+    position: relative;
+    height: 30px;
+
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+.user_permission_btn {
+    left: auto;
+    top: auto;
+    background: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+
+.trade_points_btn {
+
+    left: auto;
+    top: auto;
+    background: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+.customers_btn {
+    left: auto;
+    top: auto;
+    background: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+.components_btn {
+    left: auto;
+    top: auto;
+    background: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+.order_history_btn {
+    left: auto;
+    top: auto;
+    background: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+.menu_btn {
+    left: auto;
+    top: auto;
+    background: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+.recipes_btn {
+    left: auto;
+    top: auto;
+    background: #E5E5E5;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+}
+
+@media screen and (min-width:1000px){
+    .content{
+        width: auto;
+        height: auto;
+    }
+    .control_panel{
+        left: 40%;
+        bottom: 67%;
+    }
+    .button_area {
+        width: 50%;
+        float: right;
+        position: relative;
+        display: grid;
+    }
+    .admin_information{
+        width: 50%;
+        position: absolute;
+    }
+    .user_permission_btn{
+        font-family: Roboto Slab, serif;
+        margin-left: 15%;
+        bottom: -200%;
+        position: relative;
+        width: 10em;
+        height: 10em;
+    }
+    .trade_points_btn{
+        font-family: Roboto Slab, serif;
+        position: relative;
+        margin-left: 20%;
+        bottom: 35%;
+        width: 10em;
+        height: 10em;
+    }
+    .menu_btn{
+        font-family: Roboto Slab, serif;
+        position: relative;
+        margin-left: 43%;
+        bottom: 400%;
+        width: 10em;
+        height: 10em;
+    }
+    .order_history_btn{
+        font-family: Roboto Slab, serif;
+        position: relative;
+        margin-left:70%;
+        bottom: 100%;
+        width: 10em;
+        height: 10em;
+    }
+    .customers_btn{
+        font-family: Roboto Slab, serif;
+        position: relative;
+        margin-left:65%;
+        bottom: 135%;
+        width: 10em;
+        height: 10em;
+    }
+    .recipes_btn{
+        font-family: Roboto Slab, serif;
+        position: relative;
+        margin-left: 30%;
+        bottom: 285%;
+        width: 10em;
+        height: 10em;
+    }
+    .components_btn{
+        font-family: Roboto Slab, serif;
+        position: relative;
+        margin-left:55%;
+        bottom: 185%;
+        width: 10em;
+        height: 10em;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .content{
+        height: 98%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .control_panel{
+        display: none;
+    }
+    .button_area {
+        position: relative;
+        display: grid;
+    }
+    .admin_information{
+        position: absolute;
+    }
+    .user_permission_btn{
+        height: 30px;
+        font-family: Roboto Slab, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .recipes_btn{
+        height: 30px;
+        margin-bottom: 10px;
+        font-family: Roboto Slab, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .menu_btn{
+        height: 30px;
+        font-family: Roboto Slab, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .customers_btn{
+        height: 30px;
+        font-family: Roboto Slab, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .order_history_btn{
+        height: 30px;
+        font-family: Roboto Slab, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .trade_points_btn{
+        height: 30px;
+        font-family: Roboto Slab, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .components_btn{
+        height: 30px;
+        font-family: Roboto Slab, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+.navlink{
+    text-decoration: none;
+    color: #000000;
+}
