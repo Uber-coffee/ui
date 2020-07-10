@@ -1,16 +1,18 @@
 import React from 'react';
-import Admin from './Admin/Admin';
-import {Route} from "react-router-dom";
+import {Redirect, Route} from "react-router-dom";
 import UserAndPermissions from "../UserAndPermissions/user-and-permissions";
 import RecipesPage from "../RecipesPage/RecipesPage";
+import AdminPage from "./Admin/AdminPage";
 
 const Loged = props => {
   return (
       <div>
-        <Route exact path={"/"} render={Admin} />
+        <Route exact path={"/"}>
+            <Redirect to="/control_panel"/>
+        </Route>
         <Route path={"/users_and_permissions"} render={UserAndPermissions} />
         <Route path={"/recipes"} render={RecipesPage} />
-        {/*<Route path={"/recipes"} render={AdminPage} />*/}
+        <Route path={"/control_panel"} render={AdminPage} />
       </div>
   );
 };
