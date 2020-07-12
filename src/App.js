@@ -9,25 +9,25 @@ import LoginContainer from './components/Login/LoginContener/LoginContainer';
 import ContentContainer from './components/Content/ContentContainer';
 import HeaderContainer from "./components/Header/HeaderContainer";
 
-function App (props) {
-  return (
-    <div className="AppWrapper">
-      <div className="Header">
-          <HeaderContainer store={props.store}/>
-      </div>
-      <div className="Conten">
-        <ContentContainer store={props.store} />
-      </div>
-      <div className="Footer">
-        <Footer />
-      </div>
-      <Route
-        path="/login"
-        exact
-        render={() => <LoginContainer store={props.store} />}
-      />
-    </div>
-  );
+function App(props) {
+    return (
+        <div>
+            <Route
+                path="/login"
+                exact
+                render={() => <LoginContainer store={props.store}/>}
+            />
+            <div className="Header">
+                <HeaderContainer store={props.store}/>
+            </div>
+            <div className="Conten">
+                <ContentContainer store={props.store}/>
+            </div>
+            <div className="Footer">
+                <Footer/>
+            </div>
+        </div>
+    );
 }
 
 export default App;

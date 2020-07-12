@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from "react";
 
-// import ReactDOM from "react-dom";
-
 import classes from "./SideBar.module.css"
 import {NavLink} from 'react-router-dom';
-// import {Router} from "react-router-dom";
 
 const SideBar = (props) => {
     const [root] = useState(document.createElement('div'));
@@ -45,7 +42,6 @@ const SideBar = (props) => {
                     }
                 </div>
             </div>
-
         </div>
     );
 }

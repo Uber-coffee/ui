@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Route} from "react-router-dom";
 import UserAndPermissions from "../UserAndPermissions/user-and-permissions";
-import RecipesPage from "../RecipesPage/RecipesPage";
+import RecipesPage from "../RecipesPage/recipes-page";
 import AdminPage from "./Admin/AdminPage";
 import ComponentsPage from "../ComponentsPage/components-page";
 

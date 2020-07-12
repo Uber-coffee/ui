@@ -3,7 +3,6 @@ import classes from './MainPage.module.css';
 import {NavLink} from "react-router-dom";
 
 const Admin = props => {
-
     return (
         <div className={classes.content}>
             <div className={classes.button_area}>

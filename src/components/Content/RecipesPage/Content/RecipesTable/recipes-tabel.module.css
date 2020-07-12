@@ -4,7 +4,7 @@
     width: calc(100% * 1288 / 1440);
     display: flex;
     justify-content: center;
-    margin: 10px auto 35px;
+    margin: 20px auto 50px;
 }
 
 .table {
