@@ -35,14 +35,15 @@
     border: none;
     position: absolute;
     left: 25px;
-    top: 50px;
+    top: calc(100% * 50 / 1024);
 }
 
 
 .elem{
     position: relative;
     width: 100%;
-    height: 76px;
+    height: calc(100% * 50 / 435);
+    margin-top: 5px;
 
     background: #E5E5E5;
     border: 1px solid #000000;
@@ -51,23 +52,25 @@
     border-radius: 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .menu_wrapper{
     position: relative;
     width: 100%;
-    top: 175px;
+    top: calc(100% * 175 / 1024);
+    height: calc(100% * 435 / 600);
 }
 
 .navlink{
     position: relative;
     width: 225px;
-    height: 77px;
+    height: calc(100% * 50 / 435);
 
     font-family: Roboto Slab, serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 1em;
     line-height: 24px;
     letter-spacing: 0.04em;
     text-transform: uppercase;

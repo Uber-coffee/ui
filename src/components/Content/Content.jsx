@@ -3,7 +3,7 @@ import Unloged from './Unloged/Unloged';
 import Loged from './Loged/Loged';
 
 const Content = props => {
-  props.Check ();
+  props.Check();
 
   if (props.isAuthorized === false) {
     return <Unloged />;

@@ -1,27 +1,13 @@
-.AppWrapper {
-  display: grid;
-  grid-template-areas: 
-  'header header header '
-  'conten  conten conten '
-  'footer footer footer ';
-  grid-template-columns: 1fr 15fr 1fr;
-  grid-template-rows: 2fr 14fr 0.5fr;
-  height: 100vh;
-}
-
 .Header{
   min-height: 100px;
-  grid-area: header;
 }
 
 .Conten{
-  grid-area: conten;
   min-height: 810px;
 }
 
 .Footer{
   min-height: 25px;
-  grid-area: footer;
 }
 
 @media screen and (max-width:420px){

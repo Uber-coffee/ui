@@ -10,11 +10,11 @@ let mapStateToProps = state => {
 
 let mapDispatchToProps = dispatch => {
   return {
-    Check: () => dispatch (CheckAuthorizationActionCreator ()),
+    Check: () => dispatch(CheckAuthorizationActionCreator ()),
   };
 };
 
-const ContentContainer = connect (mapStateToProps, mapDispatchToProps) (
+const ContentContainer = connect(mapStateToProps, mapDispatchToProps) (
   Content
 );
 
