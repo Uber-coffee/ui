@@ -2,8 +2,9 @@
   min-height: 100px;
 }
 
-.Conten{
-  min-height: 810px;
+.Content{
+  /*min-height: 810px;*/
+    min-height: calc(100vh - 70px);
 }
 
 .Footer{
@@ -11,12 +12,19 @@
 }
 
 @media screen and (max-width:420px){
-.Conten{
+.Content{
     min-height: 400px;
 }
 }
 
-
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+}
 
 
 
