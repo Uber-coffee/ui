@@ -48,7 +48,7 @@
     font-size: 17px;
     background-color: #E5E5E5;
     border-bottom: solid 2px black;
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, serif;
 }
 .email:active,:hover,:focus{
     outline: 0;
@@ -65,7 +65,7 @@
     font-size: 17px;
     background-color: #E5E5E5;
     border-bottom: solid 2px black;
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, serif;
 }
 
 .password:active,:hover,:focus{
@@ -84,7 +84,7 @@
     border: none;
     font-size: 12px;
     border-radius: 5px;
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, serif;
     font-style: Light;
 }
 .login{
@@ -98,6 +98,6 @@
     border: none;
     font-size: 12px;
     border-radius: 5px;
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, serif;
     font-style: Light;
 }

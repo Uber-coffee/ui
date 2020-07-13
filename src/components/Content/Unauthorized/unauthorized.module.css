@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+.content{
+    height: 98%;
+    max-width: 1200px;
+    min-height: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #E5E5E5;
+}
+
+.imgs{
+    height: 60%;
+}
+
+.description{
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+}
+
+.text_photo{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.steps{
+    margin-top: 50px;
+    font-size: 30px;
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #4C0C1C;
+}
+.step{
+    font-size: 20px;
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #4C0C1C;
+}
+
+.google{
+    background-image: url('../../../images/google/google_646x250.png');
+    display: block;
+    height: 80px;
+    width: 200px;
+    background-position: 50% 50%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    align-self: center;
+}
+
+.google_map{
+    width: 50%;
+    height: 100%;
+}
+
+.map{
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 302px;
+    height: 202px;
+    border-top: 2px solid #4C0C1C;
+    border-bottom: 4px solid #4C0C1C;
+    border-left: 2px solid #4C0C1C;
+    border-right: 4px solid #4C0C1C;
+}
+
+@media screen and (max-width:650px){
+    .google_map{
+        display: none;
+    }
+    .map{
+        display: none;
+    }
+    .text_photo{
+        width: 100%;
+    }
+}
+
+@media screen and (width:320px){
+    .steps{
+        margin-top: 0;
+        font-size: 20px;
+    }
+    .step{
+        font-size: 15px;
+    }
+    .google{
+        height: 40px;
+        width: 150px;
+    }
+}
+
+@media screen and (width:375px) and (height:667px){
+    .steps{
+        font-size: 25px;
+        margin-top: 0;
+    }
+    .text_photo{
+        margin-top: 50px;
+    }
+    .step{
+        font-size: 17px;
+    }
+    .google{
+        height: 40px;
+        width: 150px;
+    }
+}
+
+@media screen and (width:375px) and (height:812px){
+    .steps{
+        font-size: 35px;
+        margin-top: 0;
+    }
+    .text_photo{
+        margin-top: 0;
+    }
+    .step{
+        font-size: 20px;
+    }
+    .google{
+        height: 60px;
+        width: 180px;
+    }
+}
+
+
+@media screen and (width:360px){
+    .steps{
+        font-size: 17px;
+    }
+    .text_photo{
+        margin-top: 20px;
+    }
+    .step{
+        font-size: 14px;
+    }
+    .google{
+        height: 35px;
+        width: 125px;
+    }
+}
