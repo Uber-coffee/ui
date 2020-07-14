@@ -9,7 +9,7 @@ const SideBar = (props) => {
     const pages = [
         {"name":"Control Panel", "url": "/"},
         {"name":"Trade Points", "url": "/"},
-        {"name":"Menu", "url": "/"},
+        {"name":"Menu", "url": "/menu"},
         {"name":"Recipes", "url": "/recipes"},
         {"name":"Users and Permissions", "url": "/users_and_permissions"},
         {"name":"Customers", "url": "/"},

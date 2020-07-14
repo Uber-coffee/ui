@@ -4,6 +4,7 @@ import UserAndPermissionsPage from "./UserAndPermissionsPage/user-and-permission
 import RecipesPage from "./RecipesPage/recipes-page";
 import AdminPage from "./AdminPage/admin-page";
 import ComponentsPage from "./ComponentsPage/components-page";
+import MenuPage from "./MenuPage/menu-page";
 
 const Authorized = props => {
   return (
@@ -15,6 +16,7 @@ const Authorized = props => {
         <Route path={"/recipes"} render={RecipesPage} />
         <Route path={"/control_panel"} render={AdminPage} />
         <Route path={"/components"} render={ComponentsPage} />
+        <Route path={"/menu"} render={MenuPage} />
       </div>
   );
 };
