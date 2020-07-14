@@ -9,7 +9,7 @@ import AddNewRecipe from "./AddNewRecipe/add-new-recipe";
 
 const Content = () => {
     const [isAddModalOpen, setAddModalOpen] = useState(false);
-    const [dumbRecipes] = useState(
+    const [dumbRecipes, setDumbRecipes] = useState(
         [
             {
                 NAME: "ESPRESSO",
@@ -53,6 +53,15 @@ const Content = () => {
     };
     const addNewRecipe = (newRecipe) => {
     };
+    const deleteRecipe = (index) => {
+        const newRecipes = [];
+        dumbRecipes.forEach((element, arr_index) => {
+            if (index !== arr_index) {
+                newRecipes.push(element);
+            }
+        });
+        setDumbRecipes(newRecipes);
+    };
     return (
         <div className={classes.content}>
             <div className={classes.subtitle}>RECIPES</div>
@@ -66,7 +75,7 @@ const Content = () => {
                         <AddNewRecipe closeFunc={toggleAddModal} addNewRecipe={addNewRecipe} />
                     </Modal>
             }
-            <RecipesTable recipes={dumbRecipes}/>
+            <RecipesTable recipes={dumbRecipes} deleteFunc={deleteRecipe}/>
         </div>
     );
 };

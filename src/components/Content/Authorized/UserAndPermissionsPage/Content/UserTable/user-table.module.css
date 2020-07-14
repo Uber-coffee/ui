@@ -51,3 +51,8 @@
 .table_header_position{
     width: calc(100% * 250 / 1440);
 }
+
+.invisible {
+    width: 61px;
+}
+
