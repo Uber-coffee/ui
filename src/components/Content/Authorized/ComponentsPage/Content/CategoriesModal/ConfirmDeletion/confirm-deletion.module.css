@@ -38,7 +38,7 @@
     text-transform: uppercase;
 
     color: #000000;
-
+    cursor: pointer;
 }
 
 .cancel {
@@ -65,6 +65,7 @@
     text-transform: uppercase;
 
     color: #000000;
+    cursor: pointer;
 }
 
 .text_wrapper {

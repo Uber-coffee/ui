@@ -86,6 +86,7 @@
     letter-spacing: 0.04em;
     align-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .close_button{
@@ -98,6 +99,7 @@
     position: absolute;
     top: 27px;
     right: 41px;
+    cursor: pointer;
 }
 
 /*drop down list*/
