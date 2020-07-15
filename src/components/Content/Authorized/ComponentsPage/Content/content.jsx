@@ -30,10 +30,11 @@ const Content = () => {
     const [realComponentClasses, setRealComponentClasses] = useState([]);
 
     useEffect(() => {
+        alert(localStorage.getItem('jwt-Token'));
         axios
             .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/components', {
                 headers: {
-                    Authorization: "Bearer " + localStorage.getItem('jwt-Token')
+                    authorization: "Bearer " + localStorage.getItem('jwt-Token')
                 }
             })
             .then(response => {
@@ -42,14 +43,16 @@ const Content = () => {
             })
             .catch(error => {
                 alert("getting components error!");
+                console.log(error);
             });
     }, []);
 
     useEffect(() => {
+        alert(localStorage.getItem('jwt-Token'));
         axios
             .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes', {
                 headers: {
-                    Authorization: "Bearer " + localStorage.getItem('jwt-Token')
+                    authorization: "Bearer " + localStorage.getItem('jwt-Token')
                 }
             })
             .then(response => {
@@ -58,6 +61,7 @@ const Content = () => {
             })
             .catch(error => {
                 alert("getting classes error!");
+                console.log(error);
             });
     }, [])
 
