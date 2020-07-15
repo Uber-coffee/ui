@@ -34,22 +34,56 @@ const Content = () => {
                     authorization: localStorage.getItem('jwt-Token')
                 }
             })
-            .then(response => {
-                const recipesArray = []
-                console.log(response);
-                setRealRecipes(recipesArray);
+            .then(beverageResponse => {
+                axios
+                    .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/beverages', {
+                        headers: {
+                            authorization: localStorage.getItem('jwt-Token')
+                        }
+                    })
+                    .then(componentsResponse => {
+                        createRecipesData(beverageResponse, componentsResponse);
+                    })
+                    .catch(error => {
+                        alert("getting components error!");
+                        console.log(error);
+                    });
             })
             .catch(error => {
-                alert("getting classes error!");
+                alert("getting beverages error!");
                 console.log(error);
             });
     }, []);
+
+    const createRecipesData = (beverageResponse, componentsResponse) => {
+        const recipesArray = []
+        beverageResponse.data.map(element => {
+            let newElem = {
+                NAME: element.name,
+                COMPONENTS: []
+            };
+            element.recipe.map(recipeEl => {
+                componentsResponse.data.map(compEl => {
+                    if (recipeEl.componentId === compEl.id) {
+                        let newCompEl = {
+                            NAME: compEl.name,
+                            QUANTITY: recipeEl.quantity,
+                            MEASURE: compEl.measure
+                        };
+                        newElem.COMPONENTS.push(newCompEl);
+                    }
+                });
+            });
+            recipesArray.push(newElem);
+        });
+        setRealRecipes(recipesArray);
+    };
 
     return (
         <div className={classes.content}>
             <div className={classes.subtitle}>RECIPES</div>
             <SearchPanel/>
-            <RecipesTable recipes={dumbRecipes}/>
+            <RecipesTable recipes={realRecipes}/>
         </div>
     );
 };
