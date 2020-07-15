@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import * as axios from 'axios';
 
 import classes from "./content.module.css";
 
@@ -13,42 +14,53 @@ const Content = () => {
     const [isCategoryModalOpen, setCategoryModalOpen] = useState(false);
     const [dumbComponents, setDumbComponents] = useState(
         [
-            {
-                NAME: "LAVAZZA",
-                MEASURE: "MG",
-                CLASS_NAME: "COFFEE"
-            },
-            {
-                NAME: "CUP/0,2",
-                MEASURE: "PIECE",
-                CLASS_NAME: "CUP"
-            },
-            {
-                NAME: "MILK",
-                MEASURE: "ML",
-                CLASS_NAME: "MILK"
-            }
+            {NAME: "LAVAZZA", MEASURE: "MG", CLASS_NAME: "COFFEE"},
+            {NAME: "CUP/0,2", MEASURE: "PIECE", CLASS_NAME: "CUP"},
+            {NAME: "MILK", MEASURE: "ML", CLASS_NAME: "MILK"}
         ]
     );
     const [dumbComponentClasses, setDumbComponentClasses] = useState(
         [
-            {
-                NAME: "COFFEE",
-                IS_SINGLE: false,
-                IS_REQUIRED: true
-            },
-            {
-                NAME: "CUP",
-                IS_SINGLE: true,
-                IS_REQUIRED: true
-            },
-            {
-                NAME: "MILK",
-                IS_SINGLE: false,
-                IS_REQUIRED: false
-            }
+            {NAME: "COFFEE", IS_SINGLE: false, IS_REQUIRED: true},
+            {NAME: "CUP", IS_SINGLE: true, IS_REQUIRED: true},
+            {NAME: "MILK", IS_SINGLE: false, IS_REQUIRED: false}
         ]
     );
+    const [realComponents, setRealComponents] = useState([]);
+    const [realComponentClasses, setRealComponentClasses] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/components', {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                alert("getting components success");
+                console.log(response);
+            })
+            .catch(error => {
+                alert("getting components error!");
+            });
+    }, []);
+
+    useEffect(() => {
+        axios
+            .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes', {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                alert("getting classes success");
+                console.log(response);
+            })
+            .catch(error => {
+                alert("getting classes error!");
+            });
+    }, [])
+
     const toggleAddModal = () => {
         setAddModalOpen(!isAddModalOpen)
     };
