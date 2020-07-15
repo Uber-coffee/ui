@@ -4,11 +4,8 @@ import classes from './content.module.css';
 
 import SearchPanel from "./SearchPanel/search-panel";
 import RecipesTable from "./RecipesTable/recipes-table";
-import Modal from "../../../../Modal/modal";
-import AddNewRecipe from "./AddNewRecipe/add-new-recipe";
 
 const Content = () => {
-    const [isAddModalOpen, setAddModalOpen] = useState(false);
     const [dumbRecipes, setDumbRecipes] = useState(
         [
             {
@@ -48,34 +45,11 @@ const Content = () => {
             }
         ]
     );
-    const toggleAddModal = () => {
-        setAddModalOpen(!isAddModalOpen)
-    };
-    const addNewRecipe = (newRecipe) => {
-    };
-    const deleteRecipe = (index) => {
-        const newRecipes = [];
-        dumbRecipes.forEach((element, arr_index) => {
-            if (index !== arr_index) {
-                newRecipes.push(element);
-            }
-        });
-        setDumbRecipes(newRecipes);
-    };
     return (
         <div className={classes.content}>
             <div className={classes.subtitle}>RECIPES</div>
-            <div className={classes.buttons_area}>
-                <button className={classes.add_button} onClick={toggleAddModal}>+ ADD</button>
-            </div>
             <SearchPanel/>
-            {
-                isAddModalOpen &&
-                    <Modal>
-                        <AddNewRecipe closeFunc={toggleAddModal} addNewRecipe={addNewRecipe} />
-                    </Modal>
-            }
-            <RecipesTable recipes={dumbRecipes} deleteFunc={deleteRecipe}/>
+            <RecipesTable recipes={dumbRecipes} />
         </div>
     );
 };
