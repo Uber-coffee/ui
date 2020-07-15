@@ -1,5 +1,7 @@
 import React from "react";
+
 import classes from './recipes-tabel.module.css';
+
 import RecipesTableMainRow from "./RecipesTableMainRow/recipes-table-main-row";
 import RecipesTableSecondaryRow from "./RecipesTableSecondaryRow/recipes-table-secondary-row";
 
@@ -9,7 +11,7 @@ const RecipesTable = ({recipes}) => {
         for (let i = 0; i < recipes.length; i++) {
             elements.push(<RecipesTableMainRow key={i * 100} recipesCount={recipes[i].COMPONENTS.length}
                                                beverageName={recipes[i].NAME}
-                                               component={recipes[i].COMPONENTS[0]}/>);
+                                               component={recipes[i].COMPONENTS[0]} />);
             for (let j = 1; j < recipes[i].COMPONENTS.length; j++) {
                 elements.push(<RecipesTableSecondaryRow key={i * 100 + j} component={recipes[i].COMPONENTS[j]}/>);
             }

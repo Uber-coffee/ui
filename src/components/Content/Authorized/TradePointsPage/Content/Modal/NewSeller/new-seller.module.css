@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-
 .wrapper {
     mix-blend-mode: screen;
     position: relative;
-    width: calc(100% * 700 / 1440);
+    /*height: 500px;*/
+    width: calc(100% * 627 / 1440);
     background-color: #FDFDFD;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
     box-shadow: 2px 3px 8px 5px rgba(41, 40, 40, 0.596);
     display: flex;
     flex-direction: column;
@@ -28,7 +26,19 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #000000;
-    margin-bottom: 20px;
+}
+
+.close_button{
+    background-image: url("../../../../../../../images/closeButton/close_button.png");
+    background-color: rgba(0, 0, 0, 0);
+    background-size: 100%100%;
+    width: 43px;
+    height: 27px;
+    border: none;
+    position: absolute;
+    top: 27px;
+    right: 41px;
+    cursor: pointer;
 }
 
 .input_box {
@@ -55,23 +65,14 @@
     justify-content: space-between;
 }
 
-.buttons_area {
-    width: calc(100% * 160 / 627);
-    height: 80px;
-    margin-top: 34px;
-    margin-bottom: 28px;
-}
-
-.add_input {
+.input_field{
     font-family: Roboto Slab, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     letter-spacing: 0.04em;
-    border: none;
+    border:none;
     width: 100%;
-    background: #FDFDFD;
-    text-align: left;
 }
 
 .continue_button {
@@ -90,14 +91,9 @@
     align-items: center;
 }
 
-.close_button{
-    background-image: url("../../../../../../images/closeButton/close_button.png");
-    background-color: rgba(0, 0, 0, 0);
-    background-size: 100%100%;
-    width: 43px;
-    height: 27px;
-    border: none;
-    position: absolute;
-    top: 27px;
-    right: 41px;
+.buttons_area {
+    width: calc(100% * 160 / 627);
+    height: 80px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
