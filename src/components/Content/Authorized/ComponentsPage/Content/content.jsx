@@ -29,8 +29,8 @@ const Content = () => {
     const [realComponents, setRealComponents] = useState([]);
     const [realComponentClasses, setRealComponentClasses] = useState([]);
 
+    //getting components from data base
     useEffect(() => {
-        alert(localStorage.getItem('jwt-Token'));
         axios
             .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/components', {
                 headers: {
@@ -56,8 +56,8 @@ const Content = () => {
             });
     }, []);
 
+    //getting categories from data base
     useEffect(() => {
-        alert(localStorage.getItem('jwt-Token'));
         axios
             .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes', {
                 headers: {
