@@ -34,7 +34,7 @@ const Content = () => {
         axios
             .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/components', {
                 headers: {
-                    authorization: "Bearer " + localStorage.getItem('jwt-Token')
+                    authorization: localStorage.getItem('jwt-Token')
                 }
             })
             .then(response => {
@@ -52,7 +52,7 @@ const Content = () => {
         axios
             .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes', {
                 headers: {
-                    authorization: "Bearer " + localStorage.getItem('jwt-Token')
+                    authorization: localStorage.getItem('jwt-Token')
                 }
             })
             .then(response => {
