@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+.content {
+    height: 98%;
+    width: 100%;
+    min-height: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+}
+
+.subtitle {
+    height: 100px;
+    background: rgba(196, 196, 196, 0.25);
+    margin-top: 20px;
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.buttons_area {
+    text-align: center;
+}
+
+.add_button {
+    background: #C1E9B2;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25);
+    width: calc(100% * 1288 / 1440);
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto Mono, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+}
+
+.beverages_list {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.first_elem {
+    height: 100px;
+    background-color: #FF0000;
+    flex-basis: calc(100% / 3);
+}
+
+.second_elem {
+    height: 100px;
+    background-color: #00FF00;
+    flex-basis: calc(100% / 3);
+}
+
+.third_elem {
+    height: 100px;
+    background-color: #0000FF;
+    flex-basis: calc(100% / 3);
+}

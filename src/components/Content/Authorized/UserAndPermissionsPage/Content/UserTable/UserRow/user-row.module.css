@@ -169,3 +169,17 @@
     border-color: transparent #000000;
     transform: rotate(-90deg);
 }
+
+/* delete row button */
+
+.delete_row {
+    height: 61px;
+    width: 61px;
+    border-top: 1px solid #000000;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    background-image: url("../../../../../../../images/deleteButton/delete-button.png");
+    background-size: 61px 61px;
+    cursor: pointer;
+}

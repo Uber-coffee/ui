@@ -11,7 +11,7 @@ import CategoriesModal from "./CategoriesModal/categories-modal";
 const Content = () => {
     const [isAddModalOpen, setAddModalOpen] = useState(false);
     const [isCategoryModalOpen, setCategoryModalOpen] = useState(false);
-    const [dumbComponents] = useState(
+    const [dumbComponents, setDumbComponents] = useState(
         [
             {
                 NAME: "LAVAZZA",
@@ -30,7 +30,7 @@ const Content = () => {
             }
         ]
     );
-    const [dumbComponentClasses] = useState(
+    const [dumbComponentClasses, setDumbComponentClasses] = useState(
         [
             {
                 NAME: "COFFEE",
@@ -78,6 +78,24 @@ const Content = () => {
         };
         dumbComponentClasses.push(componentClass);
     }
+    const deleteComponent = (index) => {
+        const newArray = []
+        dumbComponents.forEach((element, arr_index) => {
+            if (index !== arr_index) {
+                newArray.push(element);
+            }
+        });
+        setDumbComponents(newArray);
+    }
+    const deleteComponentClass = (index) => {
+        const newClassesArray = []
+        dumbComponents.forEach((element, arr_index) => {
+            if (index !== arr_index) {
+                newClassesArray.push(element);
+            }
+        });
+        setDumbComponentClasses(newClassesArray);
+    }
     return (
         <div className={classes.content}>
             <div className={classes.subtitle}>COMPONENTS</div>
@@ -98,11 +116,11 @@ const Content = () => {
             {
                 isCategoryModalOpen &&
                     <Modal>
-                        <CategoriesModal closeFunc={toggleCategoryModal}
+                        <CategoriesModal closeFunc={toggleCategoryModal} deleteFunc={deleteComponentClass}
                             addNewComponentClass={addNewComponentClass} componentClassesData={dumbComponentClasses} />
                     </Modal>
             }
-            <ComponentTable components={dumbComponents} />
+            <ComponentTable components={dumbComponents} deleteFunc={deleteComponent}/>
         </div>
     );
 }

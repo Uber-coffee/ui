@@ -11,7 +11,7 @@ const Admin = props => {
                     <NavLink className={classes.navlink} to="/users_and_permissions" >User and Permissions</NavLink>
                 </button>
                 <button className={classes.trade_points_btn }>
-                    <NavLink className={classes.navlink} to="/" >Trade Points</NavLink>
+                    <NavLink className={classes.navlink} to="/trade_points" >Trade Points</NavLink>
                 </button>
                 <button className={classes.customers_btn }>
                     <NavLink className={classes.navlink} to="/" >Customers</NavLink>
@@ -20,7 +20,7 @@ const Admin = props => {
                     <NavLink className={classes.navlink} to="/" >Order History </NavLink>
                 </button>
                 <button className={classes.menu_btn }>
-                    <NavLink className={classes.navlink} to="/users_and_permissions" >Menu</NavLink>
+                    <NavLink className={classes.navlink} to="/menu" >Menu</NavLink>
                 </button>
                 <button className={classes.components_btn }>
                     <NavLink className={classes.navlink} to="/components" >Components</NavLink>

@@ -29,6 +29,7 @@ class LoginClass extends React.Component {
       email: login,
       password: password,
     };
+    return this.props.onLogin (login, password);
     axios
       .post (`http://ecse005008ef.epam.com:8080/api/auth/w/auth/login`, user)
       .then (responce => {
