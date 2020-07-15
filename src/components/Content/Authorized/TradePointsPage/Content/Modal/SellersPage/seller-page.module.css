@@ -1,0 +1,68 @@
+.wrapper {
+    mix-blend-mode: screen;
+    position: relative;
+    /*height: 500px;*/
+    width: calc(100% * 1300 / 1440);
+    background-color: #FDFDFD;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 3px 8px 5px rgba(41, 40, 40, 0.596);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.title {
+    width: 462px;
+    padding-top: 39px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.close_button{
+    background-image: url("../../../../../../../images/closeButton/close_button.png");
+    background-color: rgba(0, 0, 0, 0);
+    background-size: 100%100%;
+    width: 43px;
+    height: 27px;
+    border: none;
+    position: absolute;
+    top: 27px;
+    right: 41px;
+    cursor: pointer;
+}
+
+.buttons_area {
+    text-align: center;
+    width: 100%;
+}
+
+.add_button {
+    background: #C1E9B2;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25);
+    width: calc(100% * 1112 / 1300);
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto Mono, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+}

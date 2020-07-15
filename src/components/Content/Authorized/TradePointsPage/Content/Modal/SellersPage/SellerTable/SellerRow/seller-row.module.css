@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+.row_element{
+    height: 48px;
+    font-family: Roboto Mono, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: rgb(243, 243, 243);
+    border-top: 1px solid #000000;
+    border-bottom: 2px solid #000000;
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+    box-sizing: border-box;
+    text-align: center;
+    word-wrap: break-word;
+
+    color: black;
+}
+
+.name_col{
+    width: 279px;
+    /*width: calc(100% * 279 / 1321);*/
+}
+
+.email_col{
+    /*width: calc(100% * 279 / 1321);*/
+    width: 279px;
+}
+
+.reg_time_col{
+    /*width: calc(100% * 299 / 1321);*/
+    width: 299px;
+}
+
+.phone_col{
+    /*width: calc(100% * 255 / 1321);*/
+    width: 255px;
+}
+
+
+.delete_row {
+    height: 48px;
+    width: 48px;
+    background-image: url("../../../../../../../../../images/deleteButton/delete-button.jpg");
+    background-size: 100% 100%;
+    cursor: pointer;
+}
