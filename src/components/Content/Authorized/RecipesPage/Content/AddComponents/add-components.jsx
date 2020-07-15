@@ -5,7 +5,6 @@ import classes from './add-components.module.css';
 import AddComponentsTable from "./AddComponentsTable/add-components-table";
 import Modal from "../../../../../Modal/modal";
 import ConfirmRecipe from "../ConfirmRecipe/confirm-recipe";
-// import ConfirmComponent from "../../../ComponentsPage/Content/ConfirmComponent/confirm-component";
 
 const AddComponents = ({closeFunc, toThePage, addNewRecipe, recipeBaseInfo}) => {
     const [displayConfirm, setDisplayConfirm] = useState(false);

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 .row_element, .beverage_element {
-    height: 50px;
+    height: 61px;
     font-family: Roboto Mono, serif;
     font-style: normal;
     font-weight: 300;
@@ -17,4 +17,25 @@
 .beverage_element {
     vertical-align: top;
     padding: 10px;
+}
+
+.delete_row {
+    height: 61px;
+    width: 61px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    background-color: #000000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete_icon {
+    height: 61px;
+    width: 61px;
+    background-image: url("../../../../../../../images/deleteButton/delete-button.png");
+    background-size: 61px 61px;
+    border: 1px solid #000000;
+    border-radius: 20px;
 }

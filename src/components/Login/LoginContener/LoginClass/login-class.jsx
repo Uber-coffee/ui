@@ -29,6 +29,7 @@ class LoginClass extends React.Component {
       email: login,
       password: password,
     };
+    return this.props.onLogin (login, password);
     axios
       .post (`http://188.227.28.39:8000/w/auth/login`, user)
       .then (responce => {

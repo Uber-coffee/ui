@@ -3,7 +3,6 @@
 .wrapper {
     mix-blend-mode: screen;
     position: relative;
-    height: 500px;
     width: calc(100% * 700 / 1440);
     background-color: #FDFDFD;
     margin-left: auto;
@@ -85,6 +84,7 @@
     letter-spacing: 0.04em;
     align-content: center;
     align-items: center;
+    margin-bottom: 30px;
     cursor: pointer;
 }
 

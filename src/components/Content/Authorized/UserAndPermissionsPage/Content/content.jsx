@@ -53,6 +53,16 @@ const Content = () => {
         dumbUsers.push(emp);
     }
 
+    const deleteEmployer = (index) => {
+        const newUsers = [];
+        dumbUsers.forEach((element, arr_index) => {
+            if (index !== arr_index) {
+                newUsers.push(element);
+            }
+        });
+        setDumbUsers(newUsers);
+    };
+
     return (
         <div className={classes.content}>
             <div className={classes.subtitle}>USERS AND PERMISSIONS</div>
@@ -68,7 +78,7 @@ const Content = () => {
                         <AddNewUser closeFunc={toggleModal} addNewEmployer={addNewEmployer}/>
                     </Modal>
             }
-            <UserTable users={dumbUsers}/>
+            <UserTable users={dumbUsers} deleteFunc={deleteEmployer}/>
         </div>
     );
 };

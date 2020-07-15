@@ -32,3 +32,7 @@
     word-wrap: break-word;
     width: calc(100% * 418 / 1440);
 }
+
+.invisible {
+    width: 61px;
+}

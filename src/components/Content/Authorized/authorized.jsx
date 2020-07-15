@@ -5,6 +5,7 @@ import RecipesPage from "./RecipesPage/recipes-page";
 import AdminPage from "./AdminPage/admin-page";
 import ComponentsPage from "./ComponentsPage/components-page";
 import TradePointsPage from "./TradePointsPage/trade-points-page";
+import MenuPage from "./MenuPage/menu-page";
 
 const Authorized = props => {
   return (
@@ -17,6 +18,7 @@ const Authorized = props => {
         <Route path={"/control_panel"} render={AdminPage} />
         <Route path={"/components"} render={ComponentsPage} />
         <Route path={"/trade_points"} render={TradePointsPage} />
+        <Route path={"/menu"} render={MenuPage} />
       </div>
   );
 };

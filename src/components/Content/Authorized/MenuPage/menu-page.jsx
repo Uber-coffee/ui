@@ -2,7 +2,7 @@ import React from "react";
 
 import Content from "./Content/content";
 
-const ComponentsPage = () => {
+const MenuPage = () => {
     return (
         <div>
             <Content/>
@@ -10,4 +10,4 @@ const ComponentsPage = () => {
     );
 };
 
-export default ComponentsPage;
+export default MenuPage;

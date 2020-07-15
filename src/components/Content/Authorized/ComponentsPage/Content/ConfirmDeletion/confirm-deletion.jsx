@@ -1,12 +1,12 @@
 import React from "react";
 
-import classes from './confirm-recipe.module.css';
+import classes from "./confirm-deletion.module.css";
 
-const ConfirmRecipe = ({onCancel, onConfirm}) => {
+const ConfirmDeletion = ({onCancel, onConfirm}) => {
     return (
         <div className={classes.wrapper}>
             <div className={classes.text_wrapper}>
-                Confirm the addition of a new recipe.
+                Confirm the deletion of a component.
             </div>
             <button className={classes.cancel} onClick={onCancel}>
                 cancel
@@ -18,4 +18,4 @@ const ConfirmRecipe = ({onCancel, onConfirm}) => {
     );
 };
 
-export default ConfirmRecipe;
+export default ConfirmDeletion;

@@ -41,6 +41,7 @@
     position: absolute;
     top: 27px;
     right: 41px;
+    cursor: pointer;
 }
 
 .buttons_area {

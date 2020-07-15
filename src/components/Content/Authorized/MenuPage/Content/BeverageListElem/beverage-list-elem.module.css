@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+.wrapper {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    flex-basis: calc(100% / 3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_logo {
+    background-image: url("../../../../../../images/Logo/logo250x250.png");
+    width: 250px;
+    height: 250px;
+    margin-bottom: 30px;
+}
+
+.name_label, .price_label, .delete_button {
+    width: calc(100% * 230 / 350);
+    height: 52px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 40px;
+
+    font-family: Roboto Mono;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.name_label {
+    background-color: #fff1bc;
+    margin-bottom: 10px;
+}
+
+.price_label {
+    background-color: #beb3a5;
+    margin-bottom: 10px;
+}
+
+.delete_button {
+    background-color: #f8b2b3;
+    cursor: pointer;
+}
