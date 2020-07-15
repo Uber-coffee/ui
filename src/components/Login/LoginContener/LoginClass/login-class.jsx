@@ -30,7 +30,7 @@ class LoginClass extends React.Component {
       password: password,
     };
     axios
-      .post (`http://188.227.28.39:8000/w/auth/login`, user)
+      .post (`http://ecse005008ef.epam.com:8080/api/auth/w/auth/login`, user)
       .then (responce => {
         const token = responce.headers.authorization;
         const refreshToken = {...responce.headers};
