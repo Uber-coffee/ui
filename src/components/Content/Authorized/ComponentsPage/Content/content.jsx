@@ -38,8 +38,17 @@ const Content = () => {
                 }
             })
             .then(response => {
-                alert("getting components success");
-                console.log(response);
+                const startArray = [];
+                response.data.map(element => {
+                    let newElem = {
+                        ID: element.id,
+                        NAME: element.name,
+                        MEASURE: element.measure,
+                        CLASS_NAME: element.category.name
+                    }
+                    startArray.push(newElem);
+                });
+                setRealComponents(startArray);
             })
             .catch(error => {
                 alert("getting components error!");
@@ -56,8 +65,17 @@ const Content = () => {
                 }
             })
             .then(response => {
-                alert("getting classes success");
-                console.log(response);
+                const startArray = [];
+                response.data.map(element => {
+                    let newElem = {
+                        ID: element.id,
+                        NAME: element.name,
+                        IS_SINGLE: element.isSingle,
+                        IS_REQUIRED: element.isRequired
+                    }
+                    startArray.push(newElem);
+                });
+                setRealComponentClasses(startArray);
             })
             .catch(error => {
                 alert("getting classes error!");
@@ -133,10 +151,10 @@ const Content = () => {
                 isCategoryModalOpen &&
                     <Modal>
                         <CategoriesModal closeFunc={toggleCategoryModal} deleteFunc={deleteComponentClass}
-                            addNewComponentClass={addNewComponentClass} componentClassesData={dumbComponentClasses} />
+                            addNewComponentClass={addNewComponentClass} componentClassesData={realComponentClasses} />
                     </Modal>
             }
-            <ComponentTable components={dumbComponents} deleteFunc={deleteComponent}/>
+            <ComponentTable components={realComponents} deleteFunc={deleteComponent}/>
         </div>
     );
 }
