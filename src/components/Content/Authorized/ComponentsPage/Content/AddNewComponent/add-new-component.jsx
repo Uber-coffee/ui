@@ -7,10 +7,7 @@ import Modal from "../../../../../Modal/modal";
 
 const AddNewComponent = ({closeFunc, addNewComponent, classesList, componentsList}) => {
     const [component] = useState({
-        NAME: "",
-        MEASURE: "",
-        CLASS_NAME: "",
-        CLASS_ID: -1
+        NAME: "", MEASURE: "", CLASS_NAME: "", CLASS_ID: -1
     });
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const [displayConfirm, setDisplayConfirm] = useState(false);
@@ -20,6 +17,7 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList, componentsLis
     const toggleConfirm = () => {
         setDisplayConfirm(!displayConfirm);
     };
+
     const handleChange = (event) =>{
         const target = event.target;
         const value = target.value;
@@ -42,16 +40,23 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList, componentsLis
         component.CLASS_ID = el.ID;
         toggleDropdown();
     };
+
     const isValidComponent = () => {
-        console.log(component.NAME);
+        if (component.CLASS_NAME.toLowerCase() === "cup") {
+            if (component.NAME.match(/^cup.([0-9]*\.[0-9]+|[0-9]+)/i) === null) {
+                alert("Incorrect name format for cup category (should be \"cup/*number*\")");
+                return false;
+            }
+        }
         for (let i = 0; i < componentsList.length; i++) {
-            console.log(componentsList[i].NAME);
             if (component.NAME.toLowerCase() === componentsList[i].NAME.toLowerCase()) {
+                alert("Such component exists!");
                 return false;
             }
         }
         return component.NAME !== "" && component.MEASURE !== "" && component.CLASS_NAME !== "";
     };
+
     const onAdd = () => {
         if (isValidComponent()) {
             toggleConfirm();
@@ -62,12 +67,14 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList, componentsLis
         toggleConfirm();
         closeFunc();
     };
+
     const createListElem = (el, id) => {
         return component.CLASS_NAME !== el.NAME &&
             <div className={classes.elem} key={id} onClick={() => handleSelect(el)}>
                 {el.NAME}
             </div>;
     };
+
     return (
         <div className={classes.wrapper}>
             <button className={classes.close_button} onClick={closeFunc}/>
