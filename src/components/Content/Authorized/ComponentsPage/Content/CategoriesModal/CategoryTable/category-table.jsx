@@ -17,7 +17,7 @@ const CategoryTable = ({categories, deleteFunc}) =>{
                     </tr>
                 </thead>
                 { categories.map((category, id) => <CategoryRow key={id} category={category}
-                                                                deleteRowFunc={() => {deleteFunc(id, category.ID)}}/>) }
+                                                                deleteRowFunc={() => {deleteFunc(category.ID)}}/>) }
             </table>
         </div>
     );

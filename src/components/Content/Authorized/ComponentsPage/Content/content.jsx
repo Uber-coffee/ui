@@ -165,7 +165,7 @@ const Content = () => {
     };
 
     //deletion functionality
-    const deleteComponent = (index, deleteID) => {
+    const deleteComponent = (deleteID) => {
         axios
             .delete('http://ecse005008ef.epam.com:8080/api/menu-service/w/components/' + deleteID, {
                 headers: {
@@ -175,7 +175,7 @@ const Content = () => {
             .then(() => {
                 const newArray = [];
                 realComponents.forEach((element, arr_index) => {
-                    if (index !== arr_index) {
+                    if (element.ID !== deleteID) {
                         newArray.push(element);
                     }
                 });
@@ -187,7 +187,7 @@ const Content = () => {
             });
 
     };
-    const deleteComponentClass = (index, deleteID) => {
+    const deleteComponentClass = (deleteID) => {
         axios
             .delete('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes/' + deleteID, {
                 headers: {
@@ -196,8 +196,8 @@ const Content = () => {
             })
             .then(() => {
                 const newArray = [];
-                realComponentClasses.forEach((element, arr_index) => {
-                    if (index !== arr_index) {
+                realComponentClasses.forEach((element) => {
+                    if (element.ID !== deleteID) {
                         newArray.push(element);
                     }
                 });

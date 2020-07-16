@@ -17,7 +17,7 @@ const ComponentTable = ({components, deleteFunc}) =>{
                     </tr>
                 </thead>
                 { components.map((component, id) => <ComponentRow key={id} component={component}
-                                                                  deleteRowFunc={() => {deleteFunc(id, component.ID)}}/>) }
+                                                                  deleteRowFunc={() => {deleteFunc(component.ID)}}/>) }
             </table>
         </div>
     );
