@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+.wrapper {
+    position: relative;
+    width: calc(1300px * 1000 / 1440);
+    background-color: #F1F1F1;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 3px 8px 5px rgba(41, 40, 40, 0.596);
+    color: #000000;
+}
+
+.table_zone {
+    display: flex;
+}
+
+.delete_buttons_area {
+    height: 364px;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-right: 30px;
+    margin-left: 23px;
+}
+
+.delete_row, .add_row {
+    outline: none;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    font-family: Roboto Mono, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    width: 57px;
+    height: 57px;
+    border-radius: 57px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+}
+
+.delete_row {
+    background-color: rgb(245,125,118);
+}
+
+.buttons_zone {
+    padding-top: 27px;
+    padding-bottom: 21px;
+    display: flex;
+    align-items: center;
+}
+
+.add_row {
+    background-color: rgb(111,203,120);
+    margin-left: calc(100% * 400 / 1032);
+    cursor: pointer;
+}
+
+
+.next_area {
+    width: 149px;
+    height: 44px;
+    margin-left: auto;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.next_button {
+    background: rgba(172, 161, 148, 0.7);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    font-family: Roboto Mono, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    height: 100%;
+    width: 100%;
+    outline: none;
+}
+
+.close_button{
+    background-image: url("../../../../../../images/closeButton/close_button.png");
+    background-color: rgba(0, 0, 0, 0);
+    background-size: 100%100%;
+    width: 43px;
+    height: 27px;
+    border: none;
+    position: absolute;
+    top: 27px;
+    right: 41px;
+}
