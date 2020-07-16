@@ -9,10 +9,11 @@ const AdditionalComponentRow = ({components, component, setComponent, deleteRowF
         setNameDropDown(!nameDropDown);
     };
 
-    const selectPosition = (el) => {
+    const selectPosition = el => {
         toggleNameDropDown();
 
         setComponent({
+            ID: el.ID,
             NAME: el.NAME,
             MEASURE: el.MEASURE,
             QUANTITY: component.QUANTITY
@@ -24,7 +25,7 @@ const AdditionalComponentRow = ({components, component, setComponent, deleteRowF
             <div className={classes.elem} key={id} onClick={() => selectPosition(el)}>{el.NAME}</div>;
     };
 
-    const handleChange = (event) => {
+    const handleChange = event => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -32,6 +33,7 @@ const AdditionalComponentRow = ({components, component, setComponent, deleteRowF
         switch (name) {
             case "quantity":
                 setComponent({
+                    ID: component.ID,
                     NAME: component.NAME,
                     QUANTITY: value,
                     MEASURE: component.MEASURE
@@ -62,7 +64,6 @@ const AdditionalComponentRow = ({components, component, setComponent, deleteRowF
                 </div>
             </td>
             <td className={classes.table_element + ' ' + classes.second_row}>
-
                 <input
                     className={classes.input_add_components}
                     name={"quantity"}

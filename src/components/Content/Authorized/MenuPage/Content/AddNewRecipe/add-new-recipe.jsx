@@ -5,11 +5,13 @@ import AddComponentTable from "./AddComponentTable/add-component-table";
 const AddRecipe = ({beverage, nextFunc, updateBeverage}) => {
     const [components, setComponents] = useState([
         {
+            ID: -1,
             NAME: "",
             QUANTITY: -1,
             MEASURE: ""
         },
         {
+            ID: -1,
             NAME: "",
             QUANTITY: -1,
             MEASURE: ""
@@ -28,12 +30,18 @@ const AddRecipe = ({beverage, nextFunc, updateBeverage}) => {
     };
 
     const onNext = () => {
-        updateBeverage({
-            NAME: beverage.NAME,
-            PRICE: beverage.PRICE,
-            COMPONENTS: components
-        });
-        nextFunc();
+        if (isValidComponents()){
+            updateBeverage({
+                NAME: beverage.NAME,
+                PRICE: beverage.PRICE,
+                COMPONENTS: components
+            });
+            nextFunc();
+        }
+    };
+
+    const isValidComponents = () => {
+      return true;
     };
 
     const deleteRow = (id) => {

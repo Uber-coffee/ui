@@ -1,9 +1,41 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import classes from './add-component-table.module.css';
 import ComponentRow from "./ComponentRow/component-row";
 import AdditionalComponentRow from "./AdditionalComponentRow/addtional-component-row";
+import * as axios from "axios";
 
 const AddComponentTable = ({name, beverageComponents, deleteRowFunc, setComponents}) => {
+    const [existingComponents, setExistingComponents] = useState([
+        {NAME: "CUP/0.2", MEASURE: "PIECE"},
+        {NAME: "MILK", MEASURE: "ML"},
+        {NAME: "LAVAZZA", MEASURE: "MG"}
+    ]);
+
+    useEffect(() => {
+        axios
+            .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/components', {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                const startArray = [];
+                response.data.map(element => {
+                    let newElem = {
+                        ID: element.id,
+                        NAME: element.name,
+                        MEASURE: element.measure,
+                        CLASS_NAME: element.category.name
+                    }
+                    startArray.push(newElem);
+                });
+                setExistingComponents(startArray);
+            })
+            .catch(error => {
+                alert("getting components error!");
+                console.log(error);
+            });
+    }, []);
 
     const updateComponentList = (element, id) => {
         let newComponentList = [];
@@ -16,36 +48,7 @@ const AddComponentTable = ({name, beverageComponents, deleteRowFunc, setComponen
             }
         });
         setComponents(newComponentList);
-
     };
-
-    const createAdditionalRow = (el, id) => {
-        return (
-            <tr>
-                <td className={classes.table_element + ' ' + classes.first_row}>
-                    <select></select>
-                </td>
-                <td className={classes.table_element + ' ' + classes.second_row}>
-                    <input className={classes.input_add_components}/>
-                </td>
-                <td className={classes.table_element + ' ' + classes.third_row}>
-                    <select></select>
-                </td>
-                <td className={classes.table_element + ' ' + classes.delete_col}>
-                    <div className={classes.delete_buttons_area}>
-                        <button className={classes.delete_row} onClick={()=>deleteRowFunc(id)}>-</button>
-                    </div>
-                </td>
-            </tr>
-
-        );
-    }
-
-    const existingComponents = [
-        {NAME: "CUP/0.2", MEASURE: "PIECE"},
-        {NAME: "MILK", MEASURE: "ML"},
-        {NAME: "LAVAZZA", MEASURE: "MG"},
-    ]
 
     return (
         <table className={classes.components_table}>
@@ -69,7 +72,6 @@ const AddComponentTable = ({name, beverageComponents, deleteRowFunc, setComponen
                             component={el}
                             setComponent={(element, ind=id)=>{updateComponentList(element, ind)}}
                         />
-                        // : createAdditionalRow(el, id)
                         : <AdditionalComponentRow
                             components={existingComponents}
                             component={el}
