@@ -92,7 +92,7 @@ const Content = () => {
     const createNamesList = (list) => {
         let namesList = [];
         realComponentClasses.forEach(element => {
-            list.push({
+            namesList.push({
                 NAME: element.NAME,
                 ID: element.ID
             });
@@ -189,7 +189,7 @@ const Content = () => {
                 setRealComponents(newArray);
             })
             .catch(error => {
-                alert("adding component error!");
+                alert("deletion component error!");
                 console.log(error);
             });
 
@@ -214,7 +214,7 @@ const Content = () => {
                 setRealComponentClasses(newArray);
             })
             .catch(error => {
-                alert("adding component error!");
+                alert("deletion component error!");
                 console.log(error);
             });
     };
