@@ -33,7 +33,7 @@ const Content = () => {
     //getting trade points
     useEffect(() => {
         axios
-            .get('ecse005008ef.epam.com:8080/api/trade-point/w/user/trade-points', {
+            .get('http://ecse005008ef.epam.com:8080/api/trade-point/w/user/trade-points', {
                 headers: {
                     authorization: localStorage.getItem('jwt-Token')
                 }
