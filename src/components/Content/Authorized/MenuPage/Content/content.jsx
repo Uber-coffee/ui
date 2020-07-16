@@ -30,14 +30,17 @@ const Content = () => {
     });
     const [beverages, setBeverages] = useState([
         {
+            ID: 0,
             NAME: "ESPRESSO",
             PRICE: 100
         },
         {
+            ID: 1,
             NAME: "CAPPUCCINO",
             PRICE: 200
         },
         {
+            ID: 2,
             NAME: "CAFFÉ LATTE",
             PRICE: 250
         }
@@ -63,7 +66,7 @@ const Content = () => {
                 setBeverages(startArray);
             })
             .catch(error => {
-                alert("getting components error!");
+                alert("getting beverages error!");
                 console.log(error);
             });
     }, []);
@@ -98,7 +101,7 @@ const Content = () => {
                 setBeverages(updArray);
             })
             .catch(error => {
-                alert("getting components error!");
+                alert("adding beverages error!");
                 console.log(error);
             });
         setAddStage(0);
@@ -113,15 +116,15 @@ const Content = () => {
             })
             .then(() => {
                 const newBeverages = [];
-                beverages.forEach((element, arr_index) => {
-                    if (arr_index !== index) {
+                beverages.forEach(element => {
+                    if (element.ID !== index) {
                         newBeverages.push(element);
                     }
                 });
                 setBeverages(newBeverages);
             })
             .catch(err => {
-                alert("deletion component error!");
+                alert("deleting beverages error!");
                 console.log(err);
             })
     };
@@ -139,7 +142,7 @@ const Content = () => {
             <SearchPanel/>
             <div className={classes.beverages_list}>
                 {
-                    beverages.map((el, id) => createBeverageListElem(el, id))
+                    beverages.map((el, id) => createBeverageListElem(el, el.ID))
                 }
             </div>
             {
