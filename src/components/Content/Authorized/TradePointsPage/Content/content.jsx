@@ -101,14 +101,18 @@ const Content = () => {
                 }
             })
             .then(response => {
-                realPoints.push({
+                const newArray = [];
+                realPoints.map(element => {
+                    newArray.push(element);
+                })
+                newArray.push({
                     ID: response.data,
                     NAME: tradePoint["NAME"],
                     ADDRESS: tradePoint["ADDRESS"],
                     LONGITUDE: tradePoint["LONGITUDE"],
                     LATITUDE: tradePoint["LATITUDE"],
                 });
-                setRealPoints(realPoints);
+                setRealPoints(newArray);
             })
             .catch(error => {
                 alert("adding trade point error!");
