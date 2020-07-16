@@ -61,9 +61,7 @@
 }
 
 .map{
-    margin-top: 75px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 75px auto 40px;
     width: 302px;
     height: 202px;
     border-top: 2px solid #4C0C1C;

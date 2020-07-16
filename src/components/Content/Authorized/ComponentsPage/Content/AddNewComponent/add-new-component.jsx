@@ -38,16 +38,14 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList, componentsLis
         }
     };
     const handleSelect = (el) => {
-        component.CLASS_NAME = el;
-        classesList.forEach(element => {
-            if (element.NAME === component.CLASS_NAME) {
-                component.CLASS_ID = element.ID;
-            }
-        });
+        component.CLASS_NAME = el.NAME;
+        component.CLASS_ID = el.ID;
         toggleDropdown();
     };
     const isValidComponent = () => {
+        console.log(component.NAME);
         for (let i = 0; i < componentsList.length; i++) {
+            console.log(componentsList[i].NAME);
             if (component.NAME.toLowerCase() === componentsList[i].NAME.toLowerCase()) {
                 return false;
             }
@@ -65,9 +63,9 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList, componentsLis
         closeFunc();
     };
     const createListElem = (el, id) => {
-        return component.CLASS_NAME !== el &&
+        return component.CLASS_NAME !== el.NAME &&
             <div className={classes.elem} key={id} onClick={() => handleSelect(el)}>
-                {el}
+                {el.NAME}
             </div>;
     };
     return (

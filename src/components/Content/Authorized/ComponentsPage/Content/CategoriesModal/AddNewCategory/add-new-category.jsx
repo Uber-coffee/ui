@@ -35,7 +35,9 @@ const AddNewCategory = ({closeFunc, addNewComponentClass, classesList}) => {
         }
     };
     const isValidComponentClass = () => {
+        console.log(componentClass.NAME);
         for (let i = 0; i < classesList.length; i++) {
+            console.log(classesList[i].NAME);
             if (componentClass.NAME.toLowerCase() === classesList[i].NAME.toLowerCase()) {
                 return false;
             }
