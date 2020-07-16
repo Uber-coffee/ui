@@ -55,7 +55,7 @@ const Content = () => {
                 response.data.map(element => {
                     let newElem = {
                         ID: element.id,
-                        NAME: element.name,
+                        NAME: element.beverageName,
                         PRICE: element.price,
                     }
                     startArray.push(newElem);
