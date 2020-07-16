@@ -39,6 +39,7 @@ const Content = () => {
                 }
             })
             .then(response => {
+                console.log(response);
                 const startArray = [];
                 response.data.map(element => {
                     let newElem = {
@@ -60,32 +61,61 @@ const Content = () => {
     }, []);
 
     const deleteTradePoints = (index) => {
-        const newPoints = [];
-        dumbPoints.forEach((element, arr_index) => {
-            if (element.ID !== index) {
-                newPoints.push(element);
-            }
-        });
-        setDumbPoints(newPoints);
+        axios
+            .post('http://ecse005008ef.epam.com:8080/api/trade-point/w/user/trade-points/del?id=' + index, {}, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(() => {
+                const newPoints = [];
+                realPoints.forEach((element, arr_index) => {
+                    if (element.ID !== index) {
+                        newPoints.push(element);
+                    }
+                });
+                setRealPoints(newPoints);
+            })
+            .catch(error => {
+                alert("deleting trade point error!");
+                console.log(error);
+            });
     };
 
     const addTradePoints = (tradePoint) => {
         if (tradePoint['ADDRESS'].replace(/\s+/g, '') === "" ||
             isNaN(parseFloat(tradePoint['LATITUDE'])) ||
             isNaN(parseFloat(tradePoint['LONGITUDE']))
-        ){
+        ) {
             return;
         }
-        else{
-            dumbPoints.push({
-                ID: (dumbPoints.length+1).toString(),
-                NAME: tradePoint["NAME"],
-                ADDRESS: tradePoint["ADDRESS"],
-                LONGITUDE: tradePoint["LONGITUDE"],
-                LATITUDE: tradePoint["LATITUDE"],
-            });
+        let newTradePoint = {
+            address: tradePoint['ADDRESS'],
+            latitude: tradePoint['LATITUDE'],
+            longitude: tradePoint['LONGITUDE'],
+            name: tradePoint["NAME"]
         }
-        setDumbPoints(dumbPoints);
+        axios
+            .post('http://ecse005008ef.epam.com:8080/api/trade-point/w/user/trade-points', newTradePoint, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                console.log(response);
+                realPoints.push({
+                    ID: response,
+                    NAME: tradePoint["NAME"],
+                    ADDRESS: tradePoint["ADDRESS"],
+                    LONGITUDE: tradePoint["LONGITUDE"],
+                    LATITUDE: tradePoint["LATITUDE"],
+                });
+                setRealPoints(realPoints);
+            })
+            .catch(error => {
+                alert("adding trade point error!");
+                console.log(error);
+            });
     };
 
     const [showNewTradePointModal, setShowNewTradePointModal] = useState(false);
@@ -101,7 +131,7 @@ const Content = () => {
                 <button className={classes.add_button} onClick={toggleAddTradePoint}>+ ADD</button>
             </div>
             <SearchPanel/>
-            <TradePointsTable tradePoints={dumbPoints} deleteRowFunc={deleteTradePoints}/>
+            <TradePointsTable tradePoints={realPoints} deleteRowFunc={deleteTradePoints}/>
             {
                 showNewTradePointModal &&
                 <Modal>
