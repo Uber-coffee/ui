@@ -7,7 +7,7 @@ import SearchPanel from "./SearchPanel/search-panel";
 import CategoryTable from "./CategoryTable/category-table";
 import AddNewCategory from "./AddNewCategory/add-new-category";
 
-const CategoriesModal = ({componentClassesData, addNewComponentClass, closeFunc, deleteFunc}) => {
+const CategoriesModal = ({componentClassesData, classesList, addNewComponentClass, closeFunc, deleteFunc}) => {
     const [isAddModalOpen, setAddModalOpen] = useState(false);
     const toggleAddModal = () => {
         setAddModalOpen(!isAddModalOpen)
@@ -24,7 +24,8 @@ const CategoriesModal = ({componentClassesData, addNewComponentClass, closeFunc,
                 isAddModalOpen &&
                     <Modal>
                         <AddNewCategory closeFunc={toggleAddModal}
-                                        addNewComponentClass={addNewComponentClass} />
+                                        addNewComponentClass={addNewComponentClass}
+                                        classesList={classesList} />
                     </Modal>
             }
             <CategoryTable categories={componentClassesData} deleteFunc={deleteFunc}/>

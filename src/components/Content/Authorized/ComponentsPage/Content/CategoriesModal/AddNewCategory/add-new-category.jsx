@@ -5,7 +5,7 @@ import classes from "./add-new-category.module.css";
 import ConfirmCategory from "../ConfirmCategory/confirm-category";
 import Modal from "../../../../../../Modal/modal";
 
-const AddNewCategory = ({closeFunc, addNewComponentClass}) => {
+const AddNewCategory = ({closeFunc, addNewComponentClass, classesList}) => {
     const [componentClass] = useState({
         NAME: "",
         IS_SINGLE: false,
@@ -35,6 +35,11 @@ const AddNewCategory = ({closeFunc, addNewComponentClass}) => {
         }
     };
     const isValidComponentClass = () => {
+        for (let i = 0; i < classesList.length; i++) {
+            if (componentClass.NAME.toLowerCase() === classesList[i].NAME.toLowerCase()) {
+                return false;
+            }
+        }
         return componentClass.NAME !== "" &&
                componentClass.IS_SINGLE !== undefined &&
                componentClass.IS_REQUIRED !== undefined;

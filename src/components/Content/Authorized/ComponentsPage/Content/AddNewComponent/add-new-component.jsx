@@ -5,11 +5,12 @@ import classes from "./add-new-component.module.css";
 import ConfirmComponent from "../ConfirmComponent/confirm-component";
 import Modal from "../../../../../Modal/modal";
 
-const AddNewComponent = ({closeFunc, addNewComponent, classesList}) => {
+const AddNewComponent = ({closeFunc, addNewComponent, classesList, componentsList}) => {
     const [component] = useState({
         NAME: "",
         MEASURE: "",
         CLASS_NAME: "",
+        CLASS_ID: -1
     });
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const [displayConfirm, setDisplayConfirm] = useState(false);
@@ -38,9 +39,19 @@ const AddNewComponent = ({closeFunc, addNewComponent, classesList}) => {
     };
     const handleSelect = (el) => {
         component.CLASS_NAME = el;
+        classesList.forEach(element => {
+            if (element.NAME === component.CLASS_NAME) {
+                component.CLASS_ID = element.ID;
+            }
+        });
         toggleDropdown();
     };
     const isValidComponent = () => {
+        for (let i = 0; i < componentsList.length; i++) {
+            if (component.NAME.toLowerCase() === componentsList[i].NAME.toLowerCase()) {
+                return false;
+            }
+        }
         return component.NAME !== "" && component.MEASURE !== "" && component.CLASS_NAME !== "";
     };
     const onAdd = () => {

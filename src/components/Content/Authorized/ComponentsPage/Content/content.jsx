@@ -9,23 +9,23 @@ import Modal from "../../../../Modal/modal";
 import AddNewComponent from "./AddNewComponent/add-new-component";
 import CategoriesModal from "./CategoriesModal/categories-modal";
 
+/*
+* Components format for front:
+* [
+*     {ID: 123, NAME: "LAVAZZA", MEASURE: "MG", CLASS_NAME: "COFFEE"},
+*     ...
+* ]
+*
+* Categories (component classes) format for front:
+* [
+*     {ID: 123, NAME: "COFFEE", IS_SINGLE: false, IS_REQUIRED: true},
+*     ...
+* ]
+* */
+
 const Content = () => {
     const [isAddModalOpen, setAddModalOpen] = useState(false);
     const [isCategoryModalOpen, setCategoryModalOpen] = useState(false);
-    const [dumbComponents, setDumbComponents] = useState(
-        [
-            {NAME: "LAVAZZA", MEASURE: "MG", CLASS_NAME: "COFFEE"},
-            {NAME: "CUP/0,2", MEASURE: "PIECE", CLASS_NAME: "CUP"},
-            {NAME: "MILK", MEASURE: "ML", CLASS_NAME: "MILK"}
-        ]
-    );
-    const [dumbComponentClasses, setDumbComponentClasses] = useState(
-        [
-            {NAME: "COFFEE", IS_SINGLE: false, IS_REQUIRED: true},
-            {NAME: "CUP", IS_SINGLE: true, IS_REQUIRED: true},
-            {NAME: "MILK", IS_SINGLE: false, IS_REQUIRED: false}
-        ]
-    );
     const [realComponents, setRealComponents] = useState([]);
     const [realComponentClasses, setRealComponentClasses] = useState([]);
 
@@ -81,7 +81,7 @@ const Content = () => {
                 alert("getting classes error!");
                 console.log(error);
             });
-    }, [])
+    }, []);
 
     const toggleAddModal = () => {
         setAddModalOpen(!isAddModalOpen)
@@ -89,47 +89,126 @@ const Content = () => {
     const toggleCategoryModal = () => {
         setCategoryModalOpen(!isCategoryModalOpen);
     }
-    const createClassesList = () => {
-        let list = [];
-        dumbComponentClasses.forEach(element => {
-            list.push(element.NAME);
+    const createNamesList = (list) => {
+        let namesList = [];
+        realComponentClasses.forEach(element => {
+            list.push({
+                NAME: element.NAME,
+                ID: element.ID
+            });
         });
-        return list;
+        return namesList;
     }
+
+    //addition functionality
     const addNewComponent = (newComponent) => {
-        let component = {
-            NAME: newComponent.NAME,
-            MEASURE: newComponent.MEASURE,
-            CLASS_NAME: newComponent.CLASS_NAME
+        let newComp = {
+            name: newComponent.NAME,
+            measure: newComponent.MEASURE,
+            categoryId: newComponent.CLASS_ID
         };
-        dumbComponents.push(component);
+        axios
+            .post('http://ecse005008ef.epam.com:8080/api/menu-service/w/components', newComp, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                const newItem = {
+                    ID: response.id,
+                    NAME: response.name,
+                    MEASURE: response.measure,
+                    CLASS_NAME: response.category.name
+                }
+                const newArray = [];
+                realComponents.forEach(element => {
+                    newArray.push(element);
+                });
+                newArray.push(newItem)
+                setRealComponents(newArray)
+            })
+            .catch(error => {
+                alert("adding component error!");
+                console.log(error);
+            });
     };
     const addNewComponentClass = (newComponentClass) => {
-        let componentClass = {
-            NAME: newComponentClass.NAME,
-            IS_SINGLE: newComponentClass.IS_SINGLE,
-            IS_REQUIRED: newComponentClass.IS_REQUIRED
+        let newClass = {
+            name: newComponentClass.NAME,
+            isRequired: newComponentClass.IS_REQUIRED,
+            isSingle: newComponentClass.IS_SINGLE
         };
-        dumbComponentClasses.push(componentClass);
-    }
-    const deleteComponent = (index) => {
-        const newArray = []
-        dumbComponents.forEach((element, arr_index) => {
-            if (index !== arr_index) {
-                newArray.push(element);
-            }
-        });
-        setDumbComponents(newArray);
-    }
-    const deleteComponentClass = (index) => {
-        const newClassesArray = []
-        dumbComponents.forEach((element, arr_index) => {
-            if (index !== arr_index) {
-                newClassesArray.push(element);
-            }
-        });
-        setDumbComponentClasses(newClassesArray);
-    }
+        axios
+            .post('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes', newClass, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                const newItem = {
+                    ID: response.id,
+                    NAME: response.name,
+                    IS_SINGLE: response.isSingle,
+                    IS_REQUIRED: response.isRequired
+                }
+                const newArray = [];
+                realComponentClasses.forEach(element => {
+                    newArray.push(element);
+                });
+                newArray.push(newItem)
+                setRealComponentClasses(newArray)
+            })
+            .catch(error => {
+                alert("adding component error!");
+                console.log(error);
+            });
+    };
+
+    //deletion functionality
+    const deleteComponent = (index, deleteID) => {
+        axios
+            .post('http://ecse005008ef.epam.com:8080/api/menu-service/w/components/' + deleteID, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(() => {
+                const newArray = []
+                realComponents.forEach((element, arr_index) => {
+                    if (index !== arr_index) {
+                        newArray.push(element);
+                    }
+                });
+                setRealComponents(newArray);
+            })
+            .catch(error => {
+                alert("adding component error!");
+                console.log(error);
+            });
+
+    };
+    const deleteComponentClass = (index, deleteID) => {
+        axios
+            .post('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes/' + deleteID, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(() => {
+                const newArray = []
+                realComponentClasses.forEach((element, arr_index) => {
+                    if (index !== arr_index) {
+                        newArray.push(element);
+                    }
+                });
+                setRealComponentClasses(newArray);
+            })
+            .catch(error => {
+                alert("adding component error!");
+                console.log(error);
+            });
+    };
+
     return (
         <div className={classes.content}>
             <div className={classes.subtitle}>COMPONENTS</div>
@@ -144,14 +223,17 @@ const Content = () => {
                 isAddModalOpen &&
                     <Modal>
                         <AddNewComponent closeFunc={toggleAddModal} addNewComponent={addNewComponent}
-                                         classesList={createClassesList()} />
+                                         classesList={createNamesList(realComponentClasses)}
+                                         componentsList={createNamesList(realComponents)} />
                     </Modal>
             }
             {
                 isCategoryModalOpen &&
                     <Modal>
                         <CategoriesModal closeFunc={toggleCategoryModal} deleteFunc={deleteComponentClass}
-                            addNewComponentClass={addNewComponentClass} componentClassesData={realComponentClasses} />
+                                         addNewComponentClass={addNewComponentClass}
+                                         componentClassesData={realComponentClasses}
+                                         classesList={createNamesList(realComponentClasses)} />
                     </Modal>
             }
             <ComponentTable components={realComponents} deleteFunc={deleteComponent}/>
