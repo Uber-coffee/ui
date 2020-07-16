@@ -52,7 +52,6 @@ const Content = () => {
                     startArray.push(newElem);
                 });
                 setRealPoints(startArray);
-                console.log(realPoints);
             })
             .catch(error => {
                 alert("getting trade points error!");
@@ -102,9 +101,8 @@ const Content = () => {
                 }
             })
             .then(response => {
-                console.log(response);
                 realPoints.push({
-                    ID: response,
+                    ID: response.data,
                     NAME: tradePoint["NAME"],
                     ADDRESS: tradePoint["ADDRESS"],
                     LONGITUDE: tradePoint["LONGITUDE"],
