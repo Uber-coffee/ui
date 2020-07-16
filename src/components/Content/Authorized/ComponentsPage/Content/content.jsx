@@ -102,6 +102,7 @@ const Content = () => {
 
     //addition functionality
     const addNewComponent = (newComponent) => {
+        console.log(newComponent);
         let newComp = {
             name: newComponent.NAME,
             measure: newComponent.MEASURE,
@@ -114,18 +115,19 @@ const Content = () => {
                 }
             })
             .then(response => {
+                console.log(response);
                 const newItem = {
-                    ID: response.id,
-                    NAME: response.name,
-                    MEASURE: response.measure,
-                    CLASS_NAME: response.category.name
+                    ID: response.data.id,
+                    NAME: response.data.name,
+                    MEASURE: response.data.measure,
+                    CLASS_NAME: response.data.category.name
                 }
                 const newArray = [];
                 realComponents.forEach(element => {
                     newArray.push(element);
                 });
-                newArray.push(newItem)
-                setRealComponents(newArray)
+                newArray.push(newItem);
+                setRealComponents(newArray);
             })
             .catch(error => {
                 alert("adding component error!");
@@ -133,6 +135,7 @@ const Content = () => {
             });
     };
     const addNewComponentClass = (newComponentClass) => {
+        console.log(newComponentClass);
         let newClass = {
             name: newComponentClass.NAME,
             isRequired: newComponentClass.IS_REQUIRED,
@@ -145,18 +148,19 @@ const Content = () => {
                 }
             })
             .then(response => {
+                console.log(response);
                 const newItem = {
-                    ID: response.id,
-                    NAME: response.name,
-                    IS_SINGLE: response.isSingle,
-                    IS_REQUIRED: response.isRequired
+                    ID: response.data.id,
+                    NAME: response.data.name,
+                    IS_SINGLE: response.data.isSingle,
+                    IS_REQUIRED: response.data.isRequired
                 }
                 const newArray = [];
                 realComponentClasses.forEach(element => {
                     newArray.push(element);
                 });
-                newArray.push(newItem)
-                setRealComponentClasses(newArray)
+                newArray.push(newItem);
+                setRealComponentClasses(newArray);
             })
             .catch(error => {
                 alert("adding component error!");
@@ -166,14 +170,17 @@ const Content = () => {
 
     //deletion functionality
     const deleteComponent = (index, deleteID) => {
+        console.log(realComponents[index].ID)
+        console.log(index + " " + deleteID);
         axios
-            .post('http://ecse005008ef.epam.com:8080/api/menu-service/w/components/' + deleteID, {
+            .delete('http://ecse005008ef.epam.com:8080/api/menu-service/w/components/' + deleteID, {
                 headers: {
                     authorization: localStorage.getItem('jwt-Token')
                 }
             })
             .then(() => {
-                const newArray = []
+                console.log("deletion is complete");
+                const newArray = [];
                 realComponents.forEach((element, arr_index) => {
                     if (index !== arr_index) {
                         newArray.push(element);
@@ -188,14 +195,17 @@ const Content = () => {
 
     };
     const deleteComponentClass = (index, deleteID) => {
+        console.log(realComponentClasses[index].ID)
+        console.log(index + " " + deleteID);
         axios
-            .post('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes/' + deleteID, {
+            .delete('http://ecse005008ef.epam.com:8080/api/menu-service/w/classes/' + deleteID, {
                 headers: {
                     authorization: localStorage.getItem('jwt-Token')
                 }
             })
             .then(() => {
-                const newArray = []
+                console.log("deletion is complete");
+                const newArray = [];
                 realComponentClasses.forEach((element, arr_index) => {
                     if (index !== arr_index) {
                         newArray.push(element);
