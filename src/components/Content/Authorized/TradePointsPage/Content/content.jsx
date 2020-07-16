@@ -17,17 +17,6 @@ import * as axios from "axios";
 * */
 
 const Content = () => {
-    const [dumbPoints, setDumbPoints] = useState([
-        {
-            ID: "1", NAME: "UBER-COFFEE 1", ADDRESS: "TISOVAYA 2", LONGITUDE: "13.5", LATITUDE: "13.0"
-        },
-        {
-            ID: "2", NAME: "UBER-COFFEE 2", ADDRESS: "COFFEINAYA 3 ", LONGITUDE: "60.0", LATITUDE: "30.0"
-        },
-        {
-            ID: "3", NAME: "UBER-COFFEE 3", ADDRESS: "ISPYTATELEY 39а", LONGITUDE: "59.0", LATITUDE: "31.0"
-        },
-    ]);
     const [realPoints, setRealPoints] = useState([]);
 
     //getting trade points
@@ -39,7 +28,6 @@ const Content = () => {
                 }
             })
             .then(response => {
-                console.log(response);
                 const startArray = [];
                 response.data.map(element => {
                     let newElem = {

@@ -55,6 +55,7 @@ const TradePointRow = ({point, deleteRowFunc}) => {
                         <SellerPage
                             closeFunc={()=>toggleSellerPage(0)}
                             PointName={point.NAME}
+                            TradePointID={point.ID}
                         />
                     </Modal>
             }

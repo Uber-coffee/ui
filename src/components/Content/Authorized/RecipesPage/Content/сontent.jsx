@@ -36,7 +36,7 @@ const Content = () => {
             })
             .then(beverageResponse => {
                 axios
-                    .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/beverages', {
+                    .get('http://ecse005008ef.epam.com:8080/api/menu-service/w/components', {
                         headers: {
                             authorization: localStorage.getItem('jwt-Token')
                         }
