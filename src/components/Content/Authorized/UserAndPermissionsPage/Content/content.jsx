@@ -67,25 +67,93 @@ const Content = () => {
     const addNewEmployer = (employer) => {
         let now = new Date();
         let emp = {
-            NAME: employer.NAME,
-            SURNAME: employer.SURNAME,
-            EMAIL: employer.EMAIL,
-            PHONE: employer.PHONE,
-            TIME_REG: now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " "
-                + now.getHours() + ":" + now.getMinutes(),
-            POSITION: employer.POSITION
+            firstName: employer.NAME,
+            lastName: employer.SURNAME,
+            email: employer.EMAIL,
+            phoneNumber: employer.PHONE,
         }
-        realUsers.push(emp);
+        if (employer.POSITION === "MANAGER") {
+            axios
+                .post(
+                    'http://auth-web:8100/w/user/manager',
+                    emp,
+                    {
+                        headers: {
+                            authorization: localStorage.getItem('jwt-Token')
+                        }
+                    }
+                )
+                .then(response => {
+                    let newEpl = {
+                        EMAIL: response.data.email,
+                        NAME: response.data.firstName,
+                        SURNAME: response.data.lastName,
+                        PHONE: response.data.phoneNumber,
+                        POSITION: "MANAGER",
+                        TIME_REG: now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " "
+                            + now.getHours() + ":" + now.getMinutes()
+                    };
+                    realUsers.push(newEpl);
+                })
+                .catch(err => {
+                    alert("getting users error!");
+                    console.log(err);
+                });
+        }
+        else if (employer.POSITION === "SELLER") {
+            axios
+                .post(
+                    'http://auth-web:8100/w/user/seller',
+                    emp,
+                    {
+                        headers: {
+                            authorization: localStorage.getItem('jwt-Token')
+                        }
+                    }
+                )
+                .then(response => {
+                    let newEpl = {
+                        EMAIL: response.data.email,
+                        NAME: response.data.firstName,
+                        SURNAME: response.data.lastName,
+                        PHONE: response.data.phoneNumber,
+                        POSITION: "SELLER",
+                        TIME_REG: now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear() + " "
+                            + now.getHours() + ":" + now.getMinutes()
+                    };
+                    realUsers.push(newEpl);
+                })
+                .catch(err => {
+                    alert("getting users error!");
+                    console.log(err);
+                });
+        }
     }
 
-    const deleteEmployer = (index) => {
+    const deleteEmployer = (user) => {
         const newUsers = [];
-        realUsers.forEach((element, arr_index) => {
-            if (index !== arr_index) {
-                newUsers.push(element);
-            }
-        });
-        setRealUsers(newUsers);
+        axios
+            .delete(
+                'http://auth-web:8100/w/user/deleteUser?email='+ user.EMAIL.replace("@", "%40"),
+                {
+                    headers: {
+                        authorization: localStorage.getItem('jwt-Token')
+                    }
+                }
+            )
+            .then( ()=> {
+                    realUsers.forEach((element) => {
+                        if (user !== element) {
+                            newUsers.push(element);
+                        }
+                    });
+                    setRealUsers(newUsers);
+                }
+            )
+            .catch(err => {
+                alert("getting users error!");
+                console.log(err);
+            });
     };
 
     return (
