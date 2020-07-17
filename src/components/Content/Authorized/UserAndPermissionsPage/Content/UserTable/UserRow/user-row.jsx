@@ -43,7 +43,7 @@ const UserRow = ({user, setPosition, deleteRowFunc}) => {
     return (
         <tr>
             <td className={classes.row_element}>
-                {user.NAME}
+                {user.NAME + " " + user.SURNAME}
             </td>
             <td className={classes.row_element}>
                 {user.EMAIL}
