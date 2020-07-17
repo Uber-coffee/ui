@@ -19,7 +19,7 @@ const UserTable = ({users, deleteFunc}) =>{
                     </tr>
                 </thead>
                 { users.map((user,id) => <UserRow key={id} user={user} setPosition={newValue => {user.POSITION = newValue;}}
-                                                  deleteRowFunc={() => {deleteFunc(id)}}/>) }
+                                                  deleteRowFunc={() => {deleteFunc(user)}}/>) }
             </table>
         </div>
     );
