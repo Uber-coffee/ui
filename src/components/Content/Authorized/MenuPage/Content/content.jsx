@@ -64,6 +64,7 @@ const Content = () => {
                     startArray.push(newElem);
                 });
                 setBeverages(startArray);
+                console.log(startArray);
             })
             .catch(error => {
                 alert("getting beverages error!");
@@ -73,6 +74,7 @@ const Content = () => {
 
     const addNewBeverage = (newBeverage) => {
         let newBeverageJson = {
+            id: 43,
             name: newBeverage.NAME,
             price: newBeverage.PRICE,
             recipe: [
