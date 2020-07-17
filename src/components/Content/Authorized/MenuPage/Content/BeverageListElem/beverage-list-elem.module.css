@@ -24,7 +24,7 @@
     box-sizing: border-box;
     border-radius: 40px;
 
-    font-family: Roboto Mono;
+    font-family: Roboto Mono, serif;
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
@@ -49,5 +49,11 @@
 
 .delete_button {
     background-color: #f8b2b3;
+    cursor: pointer;
+}
+
+.navlink{
+    text-decoration: none;
+    color: #000000;
     cursor: pointer;
 }

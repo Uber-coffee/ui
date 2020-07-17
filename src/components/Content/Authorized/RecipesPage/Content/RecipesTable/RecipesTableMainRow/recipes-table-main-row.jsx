@@ -1,18 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 
 import classes from './recipes-table-main-row.module.css';
 
-const RecipesTableMainRow = ({recipesCount, beverageName, component, deleteRowFunc}) => {
-    const [isDeleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
-    const toggleDeleteConfirm = () => {
-        setDeleteConfirmOpen(!isDeleteConfirmOpen);
-    };
-    const onConfirm = () => {
-        deleteRowFunc();
-        toggleDeleteConfirm();
-    };
+const RecipesTableMainRow = ({recipesCount, beverageName, component, deleteRowFunc, id}) => {
     return (
-        <tr>
+        <tr id={id.toString()}>
             <td rowSpan={recipesCount} className={classes.beverage_element}>{beverageName}</td>
             <td className={classes.row_element}>{component.NAME}</td>
             <td className={classes.row_element}>{component.QUANTITY}</td>
