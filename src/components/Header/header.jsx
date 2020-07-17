@@ -37,7 +37,7 @@ const Header = props => {
                 }
                 <BurgerButton onClick={toggleSideBar}/>
                 <div className={classes.title_logged}>UBER COFFEE</div>
-                <UserButton name={"ADMIN"}/>
+                <UserButton name={"ADMIN"} onLogout={props.onLogout}/>
             </div>
         );
     }
