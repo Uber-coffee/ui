@@ -12,7 +12,7 @@ import AddNewUser from "./AddNewUser/add-new-user";
 /*
 * Users format for front
 * [
-*     {ID: 123, NAME: "BENEDICT CUMBER", EMAIL: "ADMIN@UBERCOFFEE.COM",
+*     {ID: 123, NAME: "BENEDICT CUMBER", EMAIL: "ADMIN@UBERCOFFEE.COM", PHONE: "+444555",
        TIME_REG: "10/10/2020 10:10", POSITION: "ADMIN"},
 *     ...
 * ]
@@ -60,6 +60,7 @@ const Content = () => {
                         ID: element.id,
                         NAME: element.firstName + " " + element.lastName,
                         EMAIL: element.email,
+                        PHONE: element.phoneNumber,
                         TIME_REG: regDateStr,
                         POSITION: element.roles[0].split("_")[1]
                     }
