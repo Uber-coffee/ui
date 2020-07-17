@@ -28,23 +28,7 @@ const Content = () => {
             }
         ]
     });
-    const [beverages, setBeverages] = useState([
-        {
-            ID: 0,
-            NAME: "ESPRESSO",
-            PRICE: 100
-        },
-        {
-            ID: 1,
-            NAME: "CAPPUCCINO",
-            PRICE: 200
-        },
-        {
-            ID: 2,
-            NAME: "CAFFÉ LATTE",
-            PRICE: 250
-        }
-    ]);
+    const [beverages, setBeverages] = useState([]);
 
     useEffect(() => {
         axios
@@ -74,7 +58,7 @@ const Content = () => {
 
     const addNewBeverage = (newBeverage) => {
         let newBeverageJson = {
-            id: 0,
+            id: beverages.length,
             name: newBeverage.NAME,
             price: parseInt(newBeverage.PRICE),
             recipe:
@@ -96,7 +80,7 @@ const Content = () => {
                 beverages.forEach(el => updArray.push(el));
                 updArray.push({
                     ID: response.data.id,
-                    NAME: response.data.name,
+                    NAME: response.data.beverageName,
                     PRICE: response.data.price,
                 });
                 setBeverages(updArray);
