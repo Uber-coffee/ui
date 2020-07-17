@@ -18,7 +18,6 @@ const Content = () => {
                 }
             })
             .then(beverageResponse => {
-                console.log(beverageResponse);
                 createRecipesData(beverageResponse);
             })
             .catch(error => {
@@ -34,12 +33,9 @@ const Content = () => {
                 NAME: element.beverageName,
                 COMPONENTS: element.recipe.map(component => {
                     return {
-                        // NAME: component.component.name,
-                        // MEASURE: component.component.measure,
-                        // QUANTITY: component.quantity
-                        NAME: "",
-                        MEASURE: "",
-                        QUANTITY: ""
+                        NAME: component.component.name,
+                        MEASURE: component.component.measure,
+                        QUANTITY: component.quantity
                     };
                 })
             };
