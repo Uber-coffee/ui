@@ -54,8 +54,9 @@ const Content = () => {
                 const startArray = [];
                 response.data.map(element => {
                     const regDate = new Date(element.registrationDate);
+                    const minutes = (regDate.getMinutes() < 10) ? "0" + regDate.getMinutes() : regDate.getMinutes();
                     const regDateStr = regDate.getDate() + '/' + regDate.getMonth() + '/' + regDate.getFullYear() +
-                        " " + regDate.getHours() + ':' + regDate.getMinutes();
+                        " " + regDate.getHours() + ':' + minutes;
                     let newElem = {
                         ID: element.id,
                         NAME: element.firstName + " " + element.lastName,
