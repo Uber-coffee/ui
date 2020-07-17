@@ -93,9 +93,28 @@ const SellerPage = ({PointName, closeFunc, TradePointID}) => {
     };
 
     const addNewSeller = (seller) => {
-        let newTradePointSeller = {};
-        sellers.push(seller);
-        setSellers(sellers);
+        const requestUrl = `http://ecse005008ef.epam.com:8080/api/trade-point/w/user/trade-points/`
+                           + TradePointID + `/add?idSeller=` + seller.ID
+        axios
+            .post(requestUrl, {}, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                if (response.data !== -1) {
+                    const newSellers = [];
+                    realSellers.forEach(element => {
+                        newSellers.push(element);
+                    });
+                    newSellers.push(seller);
+                    setRealSellers(newSellers);
+                }
+            })
+            .catch(error => {
+                alert("adding seller to trade point error!");
+                console.log(error);
+            });
     };
 
     return (
