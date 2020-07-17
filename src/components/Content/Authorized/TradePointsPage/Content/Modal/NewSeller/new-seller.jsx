@@ -5,12 +5,15 @@ import classes from "./new-seller.module.css";
 import Modal from "../../../../../../Modal/modal";
 import ConfirmNotFound from "../../Confirm/AddSeller/UserNotFound/confirm-not-found";
 import ConfirmAddSeller from "../../Confirm/AddSeller/UserFound/confirm-add-seller";
+import * as axios from "axios";
 
-const AddNewSeller = ({closeFunc, addNewSeller}) => {
+const AddNewSeller = ({closeFunc, addNewSeller, TradePointID}) => {
     const [email, setEmail] = useState("");
-    const passwordRef = useRef(null);
     const [displayConfirmNotFound, setDisplayConfirmNotFound] = useState(false);
     const [displayConfirmFound, setDisplayConfirmFound] = useState(false);
+    const newSellerInfo = {
+        ID: -1, NAME: "", EMAIL: "", PHONE: "", TIME_REG: ""
+    };
 
     const handleChange = (event) =>{
         const target = event.target;
@@ -33,12 +36,7 @@ const AddNewSeller = ({closeFunc, addNewSeller}) => {
     };
 
     const onConfirmFound = () => {
-        addNewSeller({
-            NAME: "IVAN",
-            EMAIL: "VASYA@MAIL.RU",
-            PHONE: "+880055",
-            TIME_REG: "21/12/2021 20:34",
-        })
+        addNewSeller(newSellerInfo);
         toggleConfirmFound();
         closeFunc();
     };
@@ -57,16 +55,34 @@ const AddNewSeller = ({closeFunc, addNewSeller}) => {
         toggleConfirmNotFound();
     };
 
-
-
-
     const onAdd = () => {
-        if (email === "VASYA@MAIL.RU"){
-            toggleConfirmFound();
-        }
-        else {
-            toggleConfirmNotFound();
-        }
+        let requestUrl = 'http://ecse005008ef.epam.com:8080/api/trade-point/w/user/trade-points/'
+                         + TradePointID + '/valid?emailSeller=' + email;
+        axios
+            .get(requestUrl, {
+                headers: {
+                    authorization: localStorage.getItem('jwt-Token')
+                }
+            })
+            .then(response => {
+                if (response.data === null) {
+                    toggleConfirmNotFound();
+                } else {
+                    const regDate = new Date(response.data.registrationDate);
+                    const regDateStr = regDate.getDate() + '/' + regDate.getMonth() + '/' + regDate.getFullYear() +
+                        " " + regDate.getHours() + ':' + regDate.getMinutes();
+                    newSellerInfo.ID = response.data.id
+                    newSellerInfo.NAME = response.data.firstName + " " + response.data.lastName;
+                    newSellerInfo.EMAIL = response.data.email;
+                    newSellerInfo.PHONE = response.data.phoneNumber;
+                    newSellerInfo.TIME_REG = regDateStr;
+                    toggleConfirmFound();
+                }
+            })
+            .catch(error => {
+                alert("checking seller error!");
+                console.log(error);
+            });
     }
 
     return (
@@ -98,9 +114,9 @@ const AddNewSeller = ({closeFunc, addNewSeller}) => {
                     <ConfirmAddSeller
                         onCancel={onCancelFound}
                         onConfirm={onConfirmFound}
-                        name={"IVAN"}
-                        email={"VASYA@MAIL.RU"}
-                        phone={"+880055"}
+                        name={newSellerInfo.NAME}
+                        email={newSellerInfo.EMAIL}
+                        phone={newSellerInfo.ID}
                     />
                 </Modal>
             }

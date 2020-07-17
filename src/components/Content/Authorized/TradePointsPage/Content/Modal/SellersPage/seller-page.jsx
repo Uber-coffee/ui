@@ -39,7 +39,6 @@ const SellerPage = ({PointName, closeFunc, TradePointID}) => {
                 }
             })
             .then(response => {
-                console.log(response);
                 const startArray = [];
                 response.data.map(element => {
                     const regDate = new Date(element.registrationDate)
@@ -78,7 +77,7 @@ const SellerPage = ({PointName, closeFunc, TradePointID}) => {
             .then(response => {
                 if (response.data !== -1) {
                     let newSellers = [];
-                    realSellers.forEach((element, arr_index) => {
+                    realSellers.forEach((element) => {
                         if (element.EMAIL !== elem.EMAIL) {
                             newSellers.push(element);
                         }
@@ -93,6 +92,7 @@ const SellerPage = ({PointName, closeFunc, TradePointID}) => {
     };
 
     const addNewSeller = (seller) => {
+        let newTradePointSeller = {};
         sellers.push(seller);
         setSellers(sellers);
     };
@@ -108,7 +108,8 @@ const SellerPage = ({PointName, closeFunc, TradePointID}) => {
             {
                 showAddSeller &&
                     <Modal>
-                        <AddNewSeller addNewSeller={addNewSeller} closeFunc={toggleShowSeller}/>
+                        <AddNewSeller addNewSeller={addNewSeller} closeFunc={toggleShowSeller}
+                                      TradePointID={TradePointID}/>
                     </Modal>
             }
         </div>

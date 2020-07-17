@@ -49,9 +49,6 @@ const UserRow = ({user, setPosition, deleteRowFunc}) => {
                 {user.EMAIL}
             </td>
             <td className={classes.row_element}>
-                {user.PHONE}
-            </td>
-            <td className={classes.row_element}>
                 {user.TIME_REG}
             </td>
             <td className={[classes.row_element, classes.position_col].join(" ")}>

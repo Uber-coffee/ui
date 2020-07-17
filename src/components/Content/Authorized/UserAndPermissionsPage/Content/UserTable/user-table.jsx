@@ -12,7 +12,6 @@ const UserTable = ({users, deleteFunc}) =>{
                     <tr>
                         <th className={[classes.table_header, classes.table_header_name].join(" ")}>NAME</th>
                         <th className={[classes.table_header, classes.table_header_email].join(" ")}>E-MAIL</th>
-                        <th className={[classes.table_header, classes.table_header_phone].join(" ")}>PHONE</th>
                         <th className={[classes.table_header, classes.table_header_time_registration].join(" ")}>TIME REGISTRATION</th>
                         <th className={[classes.table_header, classes.table_header_position].join(" ")}>POSITION</th>
                         <th className={classes.invisible}> </th>
