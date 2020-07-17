@@ -1,9 +1,10 @@
 import React from "react";
+
 import classes from "./seller-table.module.css";
+
 import SellerRow from "./SellerRow/seller-row";
 
 const SellerTable = ({sellers, deleteRowFunc}) => {
-    console.log(sellers);
     return (
         <div className={classes.table_wrapper}>
             <table className={classes.table}>

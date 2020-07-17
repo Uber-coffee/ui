@@ -11,9 +11,9 @@ const AddNewSeller = ({closeFunc, addNewSeller, TradePointID}) => {
     const [email, setEmail] = useState("");
     const [displayConfirmNotFound, setDisplayConfirmNotFound] = useState(false);
     const [displayConfirmFound, setDisplayConfirmFound] = useState(false);
-    const newSellerInfo = {
+    const [newSellerInfo, setNewSellerInfo] = useState({
         ID: -1, NAME: "", EMAIL: "", PHONE: "", TIME_REG: ""
-    };
+    });
 
     const handleChange = (event) =>{
         const target = event.target;
@@ -71,11 +71,14 @@ const AddNewSeller = ({closeFunc, addNewSeller, TradePointID}) => {
                     const regDate = new Date(response.data.registrationDate);
                     const regDateStr = regDate.getDate() + '/' + regDate.getMonth() + '/' + regDate.getFullYear() +
                         " " + regDate.getHours() + ':' + regDate.getMinutes();
-                    newSellerInfo.ID = response.data.id
-                    newSellerInfo.NAME = response.data.firstName + " " + response.data.lastName;
-                    newSellerInfo.EMAIL = response.data.email;
-                    newSellerInfo.PHONE = response.data.phoneNumber;
-                    newSellerInfo.TIME_REG = regDateStr;
+                    let sellerInfo = {
+                        ID: response.data.id,
+                        NAME: response.data.firstName + " " + response.data.lastName,
+                        EMAIL: response.data.email,
+                        PHONE: response.data.phoneNumber,
+                        TIME_REG: regDateStr
+                    }
+                    setNewSellerInfo(sellerInfo);
                     toggleConfirmFound();
                 }
             })
@@ -116,7 +119,7 @@ const AddNewSeller = ({closeFunc, addNewSeller, TradePointID}) => {
                         onConfirm={onConfirmFound}
                         name={newSellerInfo.NAME}
                         email={newSellerInfo.EMAIL}
-                        phone={newSellerInfo.ID}
+                        phone={newSellerInfo.PHONE}
                     />
                 </Modal>
             }
