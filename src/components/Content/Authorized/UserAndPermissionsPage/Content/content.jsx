@@ -94,6 +94,7 @@ const Content = () => {
                             + now.getHours() + ":" + now.getMinutes()
                     };
                     realUsers.push(newEpl);
+                    setRealUsers(realUsers);
                 })
                 .catch(err => {
                     alert("getting users error!");
@@ -122,6 +123,7 @@ const Content = () => {
                             + now.getHours() + ":" + now.getMinutes()
                     };
                     realUsers.push(newEpl);
+                    setRealUsers(realUsers);
                 })
                 .catch(err => {
                     alert("getting users error!");
