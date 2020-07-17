@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Header from './header';
-import {CheckAuthorizationActionCreator} from '../../redux/loginReducer';
+import {CheckAuthorizationActionCreator, logoutUserActionCreator} from '../../redux/loginReducer';
 
 let mapStateToProps = state => {
     return {
@@ -11,6 +11,7 @@ let mapStateToProps = state => {
 let mapDispatchToProps = dispatch => {
     return {
         Check: () => dispatch (CheckAuthorizationActionCreator ()),
+        onLogout: () => dispatch (logoutUserActionCreator ()),
     };
 };
 

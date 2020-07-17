@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
-.user_button {
+.user_button_wrapper {
     background: #FFF1BC;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -14,12 +14,86 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 32px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+    align-content: center;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+
+    right: 25px;
+}
+
+.user_button {
+    /*background: #FFF1BC;*/
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    top: 10px;
+}
+
+
+.user_button_wrapper_opened {
+    background: #FFF1BC;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    position: absolute;
+    width: 243px;
+    height: 75px;
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
     text-align: center;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     outline: none;
     cursor: pointer;
+    margin: auto;
 
     right: 25px;
 }
 
+.user_button_opened {
+    /*background: #FFF1BC;*/
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+
+    right: 25px;
+}
+
+.logout{
+    font-family: Roboto Slab, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 32px;
+    /* identical to box height */
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: #000000;
+}
