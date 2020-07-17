@@ -68,9 +68,10 @@ const AddNewSeller = ({closeFunc, addNewSeller, TradePointID}) => {
                 if (response.data === null) {
                     toggleConfirmNotFound();
                 } else {
-                    const regDate = new Date(response.data.registrationDate);
+                    const regDate = new Date(element.registrationDate);
+                    const minutes = (regDate.getMinutes() < 10) ? "0" + regDate.getMinutes() : regDate.getMinutes();
                     const regDateStr = regDate.getDate() + '/' + regDate.getMonth() + '/' + regDate.getFullYear() +
-                        " " + regDate.getHours() + ':' + regDate.getMinutes();
+                        " " + regDate.getHours() + ':' + minutes;
                     let sellerInfo = {
                         ID: response.data.id,
                         NAME: response.data.firstName + " " + response.data.lastName,
