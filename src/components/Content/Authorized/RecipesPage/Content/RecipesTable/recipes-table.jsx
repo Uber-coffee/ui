@@ -9,9 +9,12 @@ const RecipesTable = ({recipes}) => {
     const createTableBody = () => {
         const elements = [];
         for (let i = 0; i < recipes.length; i++) {
-            elements.push(<RecipesTableMainRow key={i * 100} recipesCount={recipes[i].COMPONENTS.length}
-                                               beverageName={recipes[i].NAME}
-                                               component={recipes[i].COMPONENTS[0]} />);
+            elements.push(<RecipesTableMainRow
+                key={i * 100}
+                id={recipes[i].ID}
+                recipesCount={recipes[i].COMPONENTS.length}
+                beverageName={recipes[i].NAME}
+                component={recipes[i].COMPONENTS[0]} />);
             for (let j = 1; j < recipes[i].COMPONENTS.length; j++) {
                 elements.push(<RecipesTableSecondaryRow key={i * 100 + j} component={recipes[i].COMPONENTS[j]}/>);
             }
