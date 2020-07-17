@@ -77,14 +77,13 @@ const Content = () => {
             id: 0,
             name: newBeverage.NAME,
             price: parseInt(newBeverage.PRICE),
-            recipe: [
+            recipe:
                 newBeverage.COMPONENTS.map(el => {
                     return {
                         componentId: parseInt(el.ID),
                         quantity: el.QUANTITY
                     };
                 })
-            ]
         };
         axios
             .post('http://ecse005008ef.epam.com:8080/api/menu-service/w/beverages', newBeverageJson, {
