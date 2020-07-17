@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 
 import classes from "./add-new-user.module.css";
 
@@ -8,12 +8,12 @@ import Modal from "../../../../../Modal/modal";
 const AddNewUser = ({closeFunc, addNewEmployer}) => {
     const [employer] = useState({
         NAME: "",
+        SURNAME: "",
         EMAIL: "",
         PHONE: "",
         PASSWORD: "",
         POSITION: ""
     })
-    const passwordRef = useRef(null);
     const [displayMenu, setDisplayMenu] = useState(false)
     const [displayConfirm, setDisplayConfirm] = useState(false);
 
@@ -33,17 +33,17 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
         const name = target.name;
 
         switch (name) {
-            case "fullName":
+            case "firstName":
                 employer.NAME = value;
+                break;
+            case "secondName":
+                employer.SURNAME = value;
                 break;
             case "email":
                 employer.EMAIL = value;
                 break;
             case "phone":
                 employer.PHONE = value;
-                break;
-            case "password":
-                employer.PASSWORD = value;
                 break;
             case "position":
                 employer.POSITION = value;
@@ -53,9 +53,9 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
 
     const isValidEmployer = () => {
         return employer.NAME !== "" &&
+            employer.SURNAME !== "" &&
             employer.EMAIL !== "" &&
             employer.PHONE !== "" &&
-            employer.PASSWORD !== "" &&
             employer.POSITION !== "";
     };
 
@@ -63,12 +63,6 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
         if (isValidEmployer()) {
             toggleConfirm();
         }
-    };
-
-    const genPassword = () => {
-        let password =  Math.random().toString(36).slice(-10);
-        passwordRef.current.value = password;
-        employer.PASSWORD = password;
     };
 
     const handleSelect = (el) => {
@@ -105,8 +99,16 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
                 <div className={classes.field_wrapper}>
                     <input
                         className={classes.user_perm_param}
-                        placeholder={"Full name"}
-                        name={"fullName"}
+                        placeholder={"First name"}
+                        name={"firstName"}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className={classes.field_wrapper}>
+                    <input
+                        className={classes.user_perm_param}
+                        placeholder={"Second name"}
+                        name={"secondName"}
                         onChange={handleChange}
                     />
                 </div>
@@ -125,21 +127,6 @@ const AddNewUser = ({closeFunc, addNewEmployer}) => {
                         name={"phone"}
                         onChange={handleChange}
                     />
-                </div>
-                <div className={classes.field_wrapper}>
-                    <input
-                        className={classes.user_perm_param}
-                        placeholder={"Password"}
-                        name={"password"}
-                        onChange={handleChange}
-                        ref={passwordRef}
-                    />
-                    <button
-                        onClick={()=>{genPassword()}}
-                        className={classes.generate_button}
-                    >
-                        Generate
-                    </button>
                 </div>
                 <div className={classes.field_wrapper}>
                     <div  className={classes.dropdown}>
