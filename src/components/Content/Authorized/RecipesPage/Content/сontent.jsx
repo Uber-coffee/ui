@@ -30,6 +30,7 @@ const Content = () => {
         const recipesArray = [];
         beverageResponse.data.map(element => {
             let newElem = {
+                ID: element.id,
                 NAME: element.beverageName,
                 COMPONENTS: element.recipe.map(component => {
                     return {
