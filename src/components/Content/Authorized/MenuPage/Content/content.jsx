@@ -58,7 +58,7 @@ const Content = () => {
 
     const addNewBeverage = (newBeverage) => {
         let newBeverageJson = {
-            id: beverages.length,
+            id: parseInt(beverages[beverages.length-1].ID) + 1,
             name: newBeverage.NAME,
             price: parseInt(newBeverage.PRICE),
             recipe:
