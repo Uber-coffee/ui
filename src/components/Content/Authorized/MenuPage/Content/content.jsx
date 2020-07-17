@@ -74,13 +74,13 @@ const Content = () => {
 
     const addNewBeverage = (newBeverage) => {
         let newBeverageJson = {
-            id: 43,
+            id: 0,
             name: newBeverage.NAME,
-            price: newBeverage.PRICE,
+            price: parseInt(newBeverage.PRICE),
             recipe: [
                 newBeverage.COMPONENTS.map(el => {
                     return {
-                        componentId: el.ID,
+                        componentId: parseInt(el.ID),
                         quantity: el.QUANTITY
                     };
                 })
